@@ -122,6 +122,10 @@ form .table_row p:first-child
     width: 70px;
 }
 
+.edit_work {
+  text-align: left;
+}
+
 #copyright
 {
     margin-top: 50px;

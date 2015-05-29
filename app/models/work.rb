@@ -1,4 +1,6 @@
 class Work < ActiveRecord::Base
+  before_save :pre_process
+
   has_many :pictures, dependent: :destroy
   acts_as_list
 
@@ -7,4 +9,11 @@ class Work < ActiveRecord::Base
 
   scope :visible, lambda { where(visible: true) }
   scope :sorted, lambda { order('position') }
+
+  def pre_process
+    self.name = name.titleize
+    unless visible
+      self.position = Work.count
+    end
+  end
 end

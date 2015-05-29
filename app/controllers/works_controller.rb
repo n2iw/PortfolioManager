@@ -10,7 +10,7 @@ class WorksController < ApplicationController
       flash[:notice] = "New Work #{@work.name} created!"
       redirect_to action: :index
     else
-      flash[:error] = "Create new work failed!"
+      flash[:notice] = "Create new work failed!"
       redirect_to action: :new
     end
   end
@@ -40,7 +40,7 @@ class WorksController < ApplicationController
       flash[:notice] = "Work: #{@work.name} updated!"
       redirect_to action: :show
     else
-      flash[:errro] = "Work: #{@work.name} update failed!"
+      flash[:notice] = "Work: #{@work.name} update failed!"
       redirect_to action: :edit
     end
   end
@@ -49,8 +49,10 @@ class WorksController < ApplicationController
     @work = Work.find params[:id]
 
     if @work.update_attributes(work_params)
+      flash[:notice] = "Work: #{@work.name} updated!"
       redirect_to action: :manage
     else
+      flash[:notice] = "Work: #{@work.name} update failed!"
       redirect_to action: :manage
     end
   end

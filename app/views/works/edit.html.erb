@@ -1,4 +1,10 @@
 <h1>Edit Work: <%= @work.name %></h1>
-<%= form_for @work, :url => {action: :update}, :html => { :multipart => true } do |f| %>
-  <%= render partial: 'form', locals: {f: f} %>
-<% end %>
+  <table id="manage_works_table">
+    <tr>
+      <td><%= image_tag(@work.thumbnail.url(:thumb), alt: @work.name) %></td>
+      <td><%= form_for @work, :url => {action: :update}, :html => { :multipart => true } do |f| %>
+        <%= render partial: 'form', locals: {f: f} %>
+          <% end %>
+      </td>
+    </tr>
+  </table>
