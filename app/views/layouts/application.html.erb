@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MoyuzhangApp</title>
+  <% if @title %>
+    <title>moyuzhang.com: <%= @title %></title>
+  <% else %>
+    <title>Welcome to moyuzhang.com</title>
+  <% end %>
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta charset="utf-8">
 </head>
 <body>
-
+  <% ####################### %>
+<div class="header_img">
+    <a href="/">
+      <%= image_tag "moyuzhang_seal.png", alt: "moyuzhang.com", id: "seal" %>
+    </a>
+    <a href="/">
+      <%= image_tag "moyuzhangblack.png", alt: "moyuzhang.com" %>
+    </a>
+</div>
+<div class="navigator">
+    <div class="navigator_row">
+        <div class="navigator_cell"><%= link_to image_tag("about.png", alt: "about"), "#" %></a></div>
+        <div class="navigator_cell"><%= link_to image_tag("work.png", alt: "work"), works_path %></a></div>
+        <div class="navigator_cell"><%= link_to image_tag("contact.png", alt: "contact"), "#" %></a></div>
+    </div>
+</div>
+  <% ####################### %>
 <%= yield %>
 
 </body>
