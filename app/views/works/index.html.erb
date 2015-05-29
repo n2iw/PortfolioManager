@@ -6,9 +6,7 @@
     <% end %>
 
     <div class="works_cell"><h2><%= work.name %></h2>
-      <%= link_to(work) do %>
-        <%= image_tag(work.thumbnail, alt: work.name) %>
-      <% end %>
+      <%= link_to image_tag(work.thumbnail, alt: work.name), work  %>
     </div>
     <% if count % 3 == 2 %>
       </div>
