@@ -1,0 +1,15 @@
+<div class="content" id="works">
+  <table id="manage_works_table">
+  <% @works.each do |work| %>
+    <tr>
+      <td><%= work.name %></td>
+      <td><%= link_to image_tag(work.thumbnail.url(:thumb), alt: work.name), edit_work_path(work)  %></td>
+      <td><%= form_for work, url: update_position_work_path(work) do |f| %> 
+            <%= f.label :position %> <%= f.select :position, 1..@work_count %>
+            <%= f.submit 'Change Position' %>
+          <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+</div>

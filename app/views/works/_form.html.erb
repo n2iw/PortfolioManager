@@ -3,7 +3,7 @@
     <td><%= f.label :name %></td><td><%= f.text_field :name %></td>
   </tr>
   <tr>
-    <td><%= f.label :position %></td><td><%= f.number_field :position %></td>
+    <td><%= f.label :position %></td><td><%= f.select :position, 1..@work_count %></td>
   </tr>
   <tr>
     <td><%= f.label :visible %></td><td><%= f.check_box :visible %></td>

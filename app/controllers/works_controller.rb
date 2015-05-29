@@ -1,6 +1,7 @@
 class WorksController < ApplicationController
   def new
     @work = Work.new
+    @work_count = Work.count + 1
   end
 
   def create
@@ -18,15 +19,40 @@ class WorksController < ApplicationController
     @works = Work.visible.sorted
   end
 
+  def manage
+    @works = Work.sorted
+    @work_count = Work.count
+  end
+
   def show
     @work = Work.find(params[:id])
   end
 
   def edit
     @work = Work.find(params[:id])
+    @work_count = Work.count
   end
 
-  def udpate
+  def update
+    @work = Work.find params[:id]
+
+    if @work.update_attributes(work_params)
+      flash[:notice] = "Work: #{@work.name} updated!"
+      redirect_to action: :show
+    else
+      flash[:errro] = "Work: #{@work.name} update failed!"
+      redirect_to action: :edit
+    end
+  end
+
+  def update_position
+    @work = Work.find params[:id]
+
+    if @work.update_attribute(:position, params[:work][:position])
+      redirect_to action: :manage
+    else
+      redirect_to action: :manage
+    end
   end
 
   def delete

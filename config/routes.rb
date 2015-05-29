@@ -2,7 +2,15 @@ Rails.application.routes.draw do
 
   root 'works#index'
 
-  resources :works
+  resources :works do
+    collection do
+      get :manage
+    end
+
+    member do
+      patch :update_position
+    end
+  end
   
   #get 'public/index'
 
