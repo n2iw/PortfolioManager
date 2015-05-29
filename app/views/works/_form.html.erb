@@ -14,7 +14,7 @@
   </tr>
   <tr>
     <td><%= f.label :thumbnail %></td>
-    <td><%= f.file_field :thumbnail %></td>
+    <td><%= image_tag(f.object.thumbnail.url(:thumb)) if ! f.object.new_record? %><%= f.file_field :thumbnail %></td>
   </tr>
   <tr>
     <td></td>

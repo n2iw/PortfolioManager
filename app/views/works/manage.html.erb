@@ -5,8 +5,9 @@
       <td><%= work.name %></td>
       <td><%= link_to image_tag(work.thumbnail.url(:thumb), alt: work.name), edit_work_path(work)  %></td>
       <td><%= form_for work, url: update_position_work_path(work) do |f| %> 
+        <%= f.label :visible %> <%= f.check_box :visible %> <br />
             <%= f.label :position %> <%= f.select :position, 1..@work_count %>
-            <%= f.submit 'Change Position' %>
+            <%= f.submit %>
           <% end %>
       </td>
     </tr>

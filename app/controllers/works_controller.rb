@@ -48,7 +48,7 @@ class WorksController < ApplicationController
   def update_position
     @work = Work.find params[:id]
 
-    if @work.update_attribute(:position, params[:work][:position])
+    if @work.update_attributes(work_params)
       redirect_to action: :manage
     else
       redirect_to action: :manage
