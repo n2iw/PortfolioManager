@@ -1,5 +1,7 @@
 class AccessController < ApplicationController
 
+  layout 'works'
+
   before_action :confirm_logged_in, except: [:login, :logout, :attempt_login]
 
   def login
@@ -18,7 +20,7 @@ class AccessController < ApplicationController
       session[:username] = authorized_user.username
 
       flash[:notice] = "You are logged in"
-      redirect_to action: :index
+      redirect_to controller: :works, action: :index
     else
       flash[:notice] = "Invalid username/passowrd"
       redirect_to action: :login
