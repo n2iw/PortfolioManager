@@ -1,18 +1,16 @@
-<table class="picture_form_table">
-  <%= f.hidden_field :work_id %>
-  <%= f.hidden_field :id %>
-  <tr>
-    <td><%= f.label :position %></td><td><%= f.select :position, 1..@picture_count %></td>
-  </tr>
-  <tr>
-    <td><%= f.label :visible %></td><td><%= f.check_box :visible %></td>
-  </tr>
-  <tr>
-    <td><%= f.label :file %></td>
-    <td><%= f.file_field :file %></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td><%= f.submit %></td>
-  </tr>
-</table>
+<%= f.hidden_field :work_id %>
+<%= f.hidden_field :id %>
+<tr>
+  <td><%= f.label :position %></td><td><%= f.select :position, 1..@picture_count %></td>
+</tr>
+<tr>
+  <td><%= f.label :visible %></td><td><%= f.check_box :visible %></td>
+</tr>
+<tr>
+  <td><%= f.label :file %></td>
+  <td><%= f.file_field :file %></td>
+</tr>
+<tr>
+  <td></td>
+  <td><%= f.submit %></td>
+</tr>

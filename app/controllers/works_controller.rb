@@ -58,6 +58,16 @@ class WorksController < ApplicationController
     end
   end
 
+  def delete
+  end
+
+  def destroy
+    @work = Work.find params[:id]
+    @work.destroy
+    flash[:notice] = "Work: #{@work.name} deleted!"
+    redirect_to action: :index
+  end
+
   def add_picture
     @work = Work.find params[:id]
     @picture = Picture.new(picture_params)
@@ -81,10 +91,11 @@ class WorksController < ApplicationController
     end
   end
 
-  def delete
-  end
-
-  def destroy
+  def destroy_picture
+    @picture = Picture.find params[:picture][:id]
+    flash[:notice] = "Picture #{@picture.file_file_name} deleted!"
+    @picture.destroy
+    redirect_to action: :edit
   end
 
   private

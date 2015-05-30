@@ -3,24 +3,25 @@
   <% @works.each do |work| %>
     <tr>
       <td><%= link_to image_tag(work.thumbnail.url(:thumb), alt: work.name), {action: :show, id: work.id}  %></td>
-      <td><%= form_for work, url: update_position_work_path(work) do |f| %> 
-            <table class="work_form_table">
-              <tr>
-                <td><%= f.label :position %></td><td><%= f.select :position, 1..@work_count %></td>
-              </tr>
-              <tr>
-                <td><%= f.label :visible %></td><td><%= f.check_box :visible %></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td><%= f.submit 'Update Position and Visibility'%></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td><%= link_to 'Edit this work', edit_work_path(work) %></td>
-              </tr>
-            </table>
+      <td><table class="work_form_table">
+          <%= form_for work, url: update_position_work_path(work) do |f| %>
+            <tr>
+              <td><%= f.label :position %></td><td><%= f.select :position, 1..@work_count %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :visible %></td><td><%= f.check_box :visible %></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><%= f.submit 'Update Position and Visibility'%></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><%= link_to button_tag('Edit this work', type: 'button'), edit_work_path(work) %></td>
+            </tr>
           <% end %>
+          <%= render partial: 'delete_work_form', locals: {work: work} %>
+        </table>
       </td>
     </tr>
   <% end %>

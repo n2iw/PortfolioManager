@@ -1,23 +1,21 @@
-<table class="work_form_table">
-  <tr>
-    <td><%= f.label :name %></td><td><%= f.text_field :name %></td>
-  </tr>
-  <tr>
-    <td><%= f.label :position %></td><td><%= f.select :position, 1..@work_count %></td>
-  </tr>
-  <tr>
-    <td><%= f.label :visible %></td><td><%= f.check_box :visible %></td>
-  </tr>
-  <tr>
-    <td><%= f.label :description %></td>
-    <td><%= f.text_area :description, size: '40x5' %></td>
-  </tr>
-  <tr>
-    <td><%= f.label :thumbnail %></td>
-    <td><%= f.file_field :thumbnail %></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td><%= f.submit %></td>
-  </tr>
-</table>
+<tr>
+  <td><%= f.label :name %></td><td><%= f.text_field :name %></td>
+</tr>
+<tr>
+  <td><%= f.label :position %></td><td><%= f.select :position, 1..@work_count %></td>
+</tr>
+<tr>
+  <td><%= f.label :visible %></td><td><%= f.check_box :visible %></td>
+</tr>
+<tr>
+  <td><%= f.label :description %></td>
+  <td><%= f.text_area :description, size: '40x5' %></td>
+</tr>
+<tr>
+  <td><%= f.label :thumbnail %></td>
+  <td><%= f.file_field :thumbnail %></td>
+</tr>
+<tr>
+  <td></td>
+  <td><%= f.submit %></td>
+</tr>

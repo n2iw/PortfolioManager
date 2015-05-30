@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       patch :update_position
       patch :update_picture
       post :add_picture
+      delete :destroy_picture
     end
   end
   

@@ -1,28 +1,38 @@
 <h1>Edit Work: <%= @work.name %></h1>
-  <table id="manage_works_table">
-    <tr>
-      <td><%= link_to image_tag(@work.thumbnail.url(:thumb), alt: @work.name), {action: :show} %></td>
-      <td><%= form_for @work, :url => {action: :update}, :html => { :multipart => true } do |f| %>
+<table id="manage_works_table">
+  <tr>
+    <td><%= link_to image_tag(@work.thumbnail.url(:thumb), alt: @work.name), {action: :show} %></td>
+    <td>
+      <table class="work_form_table">
+        <%= form_for @work, :url => {action: :update}, :html => { :multipart => true } do |f| %>
             <%= render partial: 'work_form', locals: {f: f} %>
-          <% end %>
-      </td>
-    </tr>
-  <% @pictures.each do |picture| %>
-    <tr>
-      <td><%= image_tag picture.file.url(:thumb), alt: 'Picture' %></td> 
-      <td>
+        <% end %>
+        <%= render partial: 'delete_work_form', locals: {work: @work} %>
+      </table>
+    </td>
+  </tr>
+
+<% @pictures.each do |picture| %>
+  <tr>
+    <td><%= image_tag picture.file.url(:thumb), alt: 'Picture' %></td> 
+    <td>
+      <table class="picture_form_table">
         <%= form_for picture, url: {action: :update_picture}, html: {multipart: true} do |f| %>
           <%= render partial: 'picture_form', locals: {f: f} %>
         <% end %>
-      </td>
-    </tr>
-  <% end %>
-  <tr>
-    <td></td>
-    <td><% picture = @work.pictures.build %>
-    <%= form_for picture, url: {action: :add_picture}, html: {multipart: true} do |f| %>
-      <%= render partial: 'picture_form', locals: {f: f} %>
-    <% end %>
+        <%= render partial: 'delete_picture_form', locals: {picture: picture} %>
+      </table>
     </td>
   </tr>
-  </table>
+<% end %>
+<tr>
+  <td></td>
+  <td><% picture = @work.pictures.build %>
+    <table class="picture_form_table">
+      <%= form_for picture, url: {action: :add_picture}, html: {multipart: true} do |f| %>
+        <%= render partial: 'picture_form', locals: {f: f} %>
+      <% end %>
+    </table>
+  </td>
+</tr>
+</table>
