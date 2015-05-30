@@ -1,0 +1,10 @@
+<% @title = "Admin Menu" %>
+
+<div class="menu">
+  <h2>Admin Menu</h2>
+  <div class="identity">Logged in as:</div>
+  <ul>
+    <li><%= link_to "Manage Works", controller: 'works', action: 'manage' %></li>
+    <li><%= link_to "Logout", action: 'logout' %></li>
+  </ul>
+</div>

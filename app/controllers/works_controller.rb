@@ -1,4 +1,6 @@
 class WorksController < ApplicationController
+  before_action :confirm_logged_in, except: [:index, :show]
+
   def new
     @work = Work.new
     @work_count = Work.count + 1

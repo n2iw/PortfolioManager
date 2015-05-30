@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  get 'access/index'
+  get 'access/login'
+  post 'access/attempt_login'
+  get 'access/logout'
+
   root 'works#index'
 
   resources :works do
