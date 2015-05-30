@@ -16,8 +16,11 @@
 
 <div class="navigator">
     <div class="navigator_row">
+        <div class="navigator_cell"><%= link_to 'Home Page', root_path %></div>
         <div class="navigator_cell"><%= link_to 'Manage Works', works_path %></div>
         <div class="navigator_cell"><%= link_to 'Add New Work', new_work_path %></div>
+        <div class="navigator_cell"><%= link_to 'Login', access_login_path %></div>
+        <div class="navigator_cell"><%= link_to 'Log Out', access_logout_path %></div>
     </div>
 </div>
 
