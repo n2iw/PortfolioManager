@@ -3,8 +3,26 @@
     <tr>
       <td><%= image_tag(@work.thumbnail.url(:thumb), alt: @work.name) %></td>
       <td><%= form_for @work, :url => {action: :update}, :html => { :multipart => true } do |f| %>
-        <%= render partial: 'form', locals: {f: f} %>
+            <%= render partial: 'form', locals: {f: f} %>
           <% end %>
       </td>
     </tr>
+  <% @pictures.each do |picture| %>
+    <tr>
+      <td><%= image_tag picture.file.url(:thumb), alt: 'Picture' %></td> 
+      <td>
+        <%= form_for picture, url: {action: :update_picture}, html: {multipart: true} do |f| %>
+          <%= render partial: 'picture_form', locals: {f: f} %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  <tr>
+    <td></td>
+    <td><% picture = @work.pictures.build %>
+    <%= form_for picture, url: {action: :add_picture}, html: {multipart: true} do |f| %>
+      <%= render partial: 'picture_form', locals: {f: f} %>
+    <% end %>
+    </td>
+  </tr>
   </table>

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
     member do
       patch :update_position
+      patch :update_picture
+      post :add_picture
     end
   end
   

@@ -26,11 +26,14 @@ class WorksController < ApplicationController
 
   def show
     @work = Work.find(params[:id])
+    @pictures = @work.pictures.sorted
   end
 
   def edit
     @work = Work.find(params[:id])
     @work_count = Work.count
+    @pictures = @work.pictures.sorted
+    @picture_count = @work.pictures.count + 1
   end
 
   def update
@@ -57,6 +60,29 @@ class WorksController < ApplicationController
     end
   end
 
+  def add_picture
+    @work = Work.find params[:id]
+    @picture = Picture.new(picture_params)
+    if @picture.save
+      flash[:notice] = "New Picture added!"
+      redirect_to action: :edit
+    else
+      flash[:notice] = "Add new picture failed!"
+      redirect_to action: :edit
+    end
+  end
+
+  def update_picture
+    @picture = Picture.find params[:picture][:id]
+    if @picture.update_attributes(picture_params)
+      flash[:notice] = "Picture updated!"
+      redirect_to action: :edit
+    else
+      flash[:notice] = "Update picture failed!"
+      redirect_to action: :edit
+    end
+  end
+
   def delete
   end
 
@@ -66,5 +92,9 @@ class WorksController < ApplicationController
   private
     def work_params
       params.require(:work).permit(:name, :thumbnail, :position, :visible, :description)
+    end
+
+    def picture_params
+      params.require(:picture).permit(:id, :file, :position, :work_id, :visible)
     end
 end
