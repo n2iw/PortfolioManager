@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% if @title %>
+    <title>moyuzhang.com | <%= @title %></title>
+  <% else %>
+    <title>Management on moyuzhang.com</title>
+  <% end %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <meta charset="utf-8">
+</head>
+<body>
+
+<div class="navigator">
+    <div class="navigator_row">
+        <div class="navigator_cell"><%= link_to 'Manage Works', works_path %></div>
+        <div class="navigator_cell"><%= link_to 'Add New Work', new_work_path %></div>
+    </div>
+</div>
+
+<% if !flash[:notice].blank? %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>

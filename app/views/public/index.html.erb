@@ -2,13 +2,11 @@
   <% count = 0 %>
   <% @works.each do |work| %>
     <% if count % 3 == 0 %>
-      <div class=\"works_row\">
+      <div class="works_row">
     <% end %>
 
     <div class="works_cell"><h2><%= work.name %></h2>
-      <%= link_to(work) do %>
-        <%= image_tag(work.thumbnail, alt: work.name) %>
-      <% end %>
+      <%= link_to image_tag(work.thumbnail.url(:thumb), alt: work.name), work_path(id: work.id)  %>
     </div>
     <% if count % 3 == 2 %>
       </div>

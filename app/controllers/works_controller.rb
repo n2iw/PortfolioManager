@@ -1,5 +1,5 @@
 class WorksController < ApplicationController
-  before_action :confirm_logged_in, except: [:index, :show]
+  before_action :confirm_logged_in
 
   def new
     @work = Work.new
@@ -18,10 +18,6 @@ class WorksController < ApplicationController
   end
 
   def index
-    @works = Work.visible.sorted
-  end
-
-  def manage
     @works = Work.sorted
     @work_count = Work.count
   end
@@ -55,10 +51,10 @@ class WorksController < ApplicationController
 
     if @work.update_attributes(work_params)
       flash[:notice] = "Work: #{@work.name} updated!"
-      redirect_to action: :manage
+      redirect_to action: :index
     else
       flash[:notice] = "Work: #{@work.name} update failed!"
-      redirect_to action: :manage
+      redirect_to action: :index
     end
   end
 

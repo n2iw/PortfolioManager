@@ -122,7 +122,7 @@ form .table_row p:first-child
     width: 70px;
 }
 
-.edit_work, .edit_picture {
+.work_form_table, .picture_form_table {
   text-align: left;
 }
 

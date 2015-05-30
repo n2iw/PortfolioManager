@@ -2,9 +2,6 @@ class AccessController < ApplicationController
 
   before_action :confirm_logged_in, except: [:login, :logout, :attempt_login]
 
-  def index
-  end
-
   def login
   end
 

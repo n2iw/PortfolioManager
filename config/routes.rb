@@ -1,15 +1,14 @@
 Rails.application.routes.draw do
 
-  get 'access/index'
+  root 'public#index'
+  get 'work/:id' => 'public#show', as: :work
+
   get 'access/login'
   post 'access/attempt_login'
   get 'access/logout'
 
-  root 'works#index'
-
   resources :works do
     collection do
-      get :manage
     end
 
     member do
@@ -19,9 +18,6 @@ Rails.application.routes.draw do
     end
   end
   
-  #get 'public/index'
-
-  #get 'public/show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

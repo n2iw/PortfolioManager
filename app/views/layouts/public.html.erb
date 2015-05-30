@@ -2,7 +2,7 @@
 <html>
 <head>
   <% if @title %>
-    <title>moyuzhang.com: <%= @title %></title>
+    <title>moyuzhang.com | <%= @title %></title>
   <% else %>
     <title>Welcome to moyuzhang.com</title>
   <% end %>
@@ -15,26 +15,17 @@
 <body>
 <% ####################### %>
 <div class="header_img">
-    <a href="/">
-      <%= image_tag "moyuzhang_seal.png", alt: "moyuzhang.com", id: "seal" %>
-    </a>
-    <a href="/">
-      <%= image_tag "moyuzhangblack.png", alt: "moyuzhang.com" %>
-    </a>
+  <%= link_to image_tag("moyuzhang_seal.png", alt: "moyuzhang.com", id: "seal"), :root %>
+  <%= link_to image_tag("moyuzhangblack.png", alt: "moyuzhang.com"), :root %>
 </div>
 <div class="navigator">
     <div class="navigator_row">
-        <div class="navigator_cell"><%= link_to image_tag("about.png", alt: "about"), "#" %></a></div>
-        <div class="navigator_cell"><%= link_to image_tag("work.png", alt: "work"), works_path %></a></div>
-        <div class="navigator_cell"><%= link_to image_tag("contact.png", alt: "contact"), "#" %></a></div>
+        <div class="navigator_cell"><%= link_to image_tag("about.png", alt: "about"), "#" %></div>
+        <div class="navigator_cell"><%= link_to image_tag("work.png", alt: "work"), :root %></div>
+        <div class="navigator_cell"><%= link_to image_tag("contact.png", alt: "contact"), "#" %></div>
     </div>
 </div>
 
-<% if !flash[:notice].blank? %>
-  <div class="notice">
-    <%= flash[:notice] %>
-  </div>
-<% end %>
 <% ####################### %>
 
 

@@ -1,4 +1,6 @@
 class Picture < ActiveRecord::Base
+  before_save :pre_process
+
   belongs_to :work
   acts_as_list scope: :work
 
@@ -7,4 +9,10 @@ class Picture < ActiveRecord::Base
 
   scope :visible, lambda { where(visible: true) }
   scope :sorted, lambda { order('position') }
+
+  def pre_process
+    unless visible
+      self.position = self.work.pictures.count
+    end
+  end
 end
