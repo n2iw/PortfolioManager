@@ -1,4 +1,6 @@
 class WorksController < ApplicationController
+  layout 'admin'
+
   before_action :confirm_logged_in
 
   def new
@@ -31,7 +33,6 @@ class WorksController < ApplicationController
     @work = Work.find(params[:id])
     @work_count = Work.count
     @pictures = @work.pictures.sorted
-    @picture_count = @work.pictures.count + 1
   end
 
   def update
@@ -59,6 +60,7 @@ class WorksController < ApplicationController
   end
 
   def delete
+    @work = Work.find params[:id]
   end
 
   def destroy
@@ -68,42 +70,9 @@ class WorksController < ApplicationController
     redirect_to action: :index
   end
 
-  def add_picture
-    @work = Work.find params[:id]
-    @picture = Picture.new(picture_params)
-    if @picture.save
-      flash[:notice] = "New Picture added!"
-      redirect_to action: :edit
-    else
-      flash[:notice] = "Add new picture failed!"
-      redirect_to action: :edit
-    end
-  end
-
-  def update_picture
-    @picture = Picture.find params[:picture][:id]
-    if @picture.update_attributes(picture_params)
-      flash[:notice] = "Picture updated!"
-      redirect_to action: :edit
-    else
-      flash[:notice] = "Update picture failed!"
-      redirect_to action: :edit
-    end
-  end
-
-  def destroy_picture
-    @picture = Picture.find params[:picture][:id]
-    flash[:notice] = "Picture #{@picture.file_file_name} deleted!"
-    @picture.destroy
-    redirect_to action: :edit
-  end
 
   private
     def work_params
       params.require(:work).permit(:name, :thumbnail, :position, :visible, :description)
-    end
-
-    def picture_params
-      params.require(:picture).permit(:id, :file, :position, :work_id, :visible)
     end
 end

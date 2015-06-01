@@ -10,6 +10,6 @@ class PublicController < ApplicationController
     unless @work.visible
       redirect_to action: :index
     end
-    @pictures = @work.pictures.visible.sorted
+    @pictures = @work.pictures.sorted
   end
 end

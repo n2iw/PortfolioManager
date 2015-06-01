@@ -8,15 +8,17 @@ Rails.application.routes.draw do
   get 'access/logout'
 
   resources :works do
-    collection do
+    member do
+      get :delete
+      patch :update_position
     end
 
-    member do
-      patch :update_position
-      patch :update_picture
-      post :add_picture
-      delete :destroy_picture
+    resources :pictures do
+      member do
+        get :delete
+      end
     end
+
   end
   
 

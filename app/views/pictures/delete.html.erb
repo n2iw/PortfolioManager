@@ -1,0 +1,14 @@
+<% @title = "Delete Picture!" %>
+<h1>DELETE PICTURE!</h1> 
+<table>
+  <tr>
+    <td><%= image_tag @picture.file.url(:thumb) %></td>
+  </tr>
+  </tr>
+    <td>
+      <%= form_for @picture, :url => {action: :destroy},  method: 'delete', html:{class: 'delete_picture'} do |f| %>
+        <%= f.submit 'DELETE PICTURE!!!' %>
+      <% end %>
+    </td>
+  </tr>
+</table>

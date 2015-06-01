@@ -122,9 +122,13 @@ form .table_row p:first-child
     width: 70px;
 }
 
-.work_form_table, .picture_form_table, #delete_work_form_table {
+table{
   text-align: left;
 }
+
+/*td {
+  border: dotted thin;
+}*/
 
 #copyright
 {

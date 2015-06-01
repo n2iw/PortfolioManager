@@ -1,6 +1,6 @@
 class AccessController < ApplicationController
 
-  layout 'works'
+  layout 'admin'
 
   before_action :confirm_logged_in, except: [:login, :logout, :attempt_login]
 

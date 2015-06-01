@@ -1,0 +1,15 @@
+<%= error_messages_for(@page) %>
+<table summary="Picture form table" class="picture_form_table">
+  <%= f.hidden_field :work_id %>
+  <tr>
+    <td><%= f.label :position %></td><td><%= f.select :position, 1..@picture_count %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :file %></td>
+    <td><%= f.file_field :file %></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= f.submit %></td>
+  </tr>
+</table>

@@ -1,0 +1,17 @@
+<% @title = "Delete Work!" %>
+<h1>DELETE WORK!</h1> 
+<table>
+  <tr>
+    <td><%= @work.name %></td>
+  </tr>
+  <tr>
+    <td><%= image_tag @work.thumbnail.url(:thumb), alt: "#{@work.name}" %></td>
+  </tr>
+  <tr>
+    <td>
+      <%= form_for @work, :url => {action: :destroy}, method: 'delete', html: {class: 'delete_work'} do |f| %>
+        <%= f.submit 'DELETE WORK!!!' %>
+      <% end %>
+    </td>
+  </tr>
+</table>
