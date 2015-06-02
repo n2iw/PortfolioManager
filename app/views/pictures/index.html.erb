@@ -4,7 +4,20 @@
   <p><%= @work.description %></p>
 
   <table id="manage_works_table">
+  <tr>
+    <td></td>
+    <td>
+      <%= form_for @new_picture, url: {action: :create}, html: {multipart: true} do |f| %>
+        <%= render partial: 'form', locals: {f: f} %>
+      <% end %>
+    </td>
+  </tr>
   <% @pictures.each do |picture| %>
+    <tr>
+      <td><%= picture.file_file_name %></td>
+      <td><%= link_to button_tag("Delete #{picture.file_file_name}", type: 'button'), delete_work_picture_path(id: picture.id) %></td>
+      <td></td>
+    </tr>
     <tr>
       <td><%= image_tag picture.file.url(:thumb), alt: 'Picture' %></td> 
       <td>
@@ -14,18 +27,9 @@
       </td>
     </tr>
     <tr>
-      <td><%= link_to button_tag("Delete Picture above", type: 'button'), delete_work_picture_path(id: picture.id) %></td>
       <td></td>
     </tr>
   <% end %>
-  <tr>
-    <td></td>
-    <td>
-      <%= form_for @new_picture, url: {action: :create}, html: {multipart: true} do |f| %>
-        <%= render partial: 'form', locals: {f: f} %>
-      <% end %>
-    </td>
-  </tr>
   </table>
 </div>
 
