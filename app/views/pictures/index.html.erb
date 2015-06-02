@@ -14,8 +14,8 @@
   </tr>
   <% @pictures.each do |picture| %>
     <tr>
-      <td><%= picture.file_file_name %></td>
-      <td><%= link_to button_tag("Delete #{picture.file_file_name}", type: 'button'), delete_work_picture_path(id: picture.id) %></td>
+      <td><%= picture.file_file_name %>
+          <%= link_to button_tag("Delete #{picture.file_file_name}", type: 'button'), delete_work_picture_path(id: picture.id) %></td>
       <td></td>
     </tr>
     <tr>
