@@ -12,7 +12,7 @@ class WorksController < ApplicationController
     @work = Work.new(work_params)
     if @work.save
       flash[:notice] = "New Work #{@work.name} created!"
-      redirect_to action: :index
+      redirect_to work_pictures_path(@work.id)
     else
       flash[:notice] = "Create new work failed!"
       redirect_to action: :new
