@@ -4,8 +4,8 @@ class PicturesController < ApplicationController
   before_action :confirm_logged_in
 
   def create
-    #@work = Work.find params[:work_id]
     @picture = Picture.new(picture_params)
+    @picture.work_id = params[:work_id]
     if @picture.save
       flash[:notice] = "New Picture added!"
       redirect_to work_pictures_path params[:work_id]
@@ -46,6 +46,6 @@ class PicturesController < ApplicationController
 
   private
     def picture_params
-      params.require(:picture).permit(:id, :file, :position, :work_id)
+      params.require(:picture).permit(:id, :file, :position)
     end
 end
