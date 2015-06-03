@@ -4,15 +4,15 @@ class PicturesController < ApplicationController
   before_action :confirm_logged_in
 
   def create
-    #@work = Work.find params[:work_id]
-    @picture = Picture.new(picture_params)
-    if @picture.save
-      flash[:notice] = "New Picture added!"
-      redirect_to work_pictures_path params[:work_id]
-    else
-      flash[:notice] = "Add new picture failed!"
-      redirect_to work_pictures_path params[:work_id]
+    @work = Work.find(params[:work_id])
+    if params[:files]
+      params[:files].each do |picture|
+        @work.pictures.create file: picture
+      end
     end
+
+    flash[:notice] = "#{params[:files].count} Pictures added!"
+    redirect_to work_pictures_path params[:work_id]
   end
 
   def index
@@ -46,6 +46,6 @@ class PicturesController < ApplicationController
 
   private
     def picture_params
-      params.require(:picture).permit(:id, :file, :position, :work_id)
+      params.require(:picture).permit(:id, :file, :position)
     end
 end

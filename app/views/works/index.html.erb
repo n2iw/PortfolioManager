@@ -2,7 +2,8 @@
   <table id="manage_works_table">
   <% @works.each do |work| %>
     <tr>
-      <td><%= link_to button_tag("Delete #{work.name}!", type: 'button'), delete_work_path(work) %></td>
+      <td><h1><%= work.name %></h1>
+      <%= link_to button_tag("Delete #{work.name}!", type: 'button'), delete_work_path(work) %></td>
       <td></td>
     </tr>
     <tr>
