@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root 'public#index'
   get 'work/:id' => 'public#show', as: :work
+  get 'about' => 'public#about'
+  get 'contact' => 'public#contact'
 
   get 'access/login'
   post 'access/attempt_login'

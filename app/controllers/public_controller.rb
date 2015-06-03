@@ -1,6 +1,12 @@
 class PublicController < ApplicationController
   layout 'public'
 
+  def about
+  end
+
+  def contact
+  end
+
   def index
     @works = Work.visible.sorted
   end
