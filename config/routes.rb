@@ -21,6 +21,12 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :process_pictures do
+      member do
+        get :delete
+      end
+    end
+
   end
   
 

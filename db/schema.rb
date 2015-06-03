@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150601163433) do
+ActiveRecord::Schema.define(version: 20150603143027) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "username"
@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(version: 20150601163433) do
   end
 
   create_table "pictures", force: :cascade do |t|
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.integer  "work_id"
+    t.integer  "position"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "process_pictures", force: :cascade do |t|
     t.string   "file_file_name"
     t.string   "file_content_type"
     t.integer  "file_file_size"

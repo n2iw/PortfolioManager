@@ -2,6 +2,7 @@ class Work < ActiveRecord::Base
   before_validation :pre_process
 
   has_many :pictures, dependent: :destroy
+  has_many :process_pictures, dependent: :destroy
   acts_as_list
 
   has_attached_file :thumbnail, :styles => { :thumb => "200x200>" }
