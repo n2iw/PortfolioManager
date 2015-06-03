@@ -12,7 +12,13 @@ class WorksController < ApplicationController
     @work = Work.new(work_params)
     if @work.save
       flash[:notice] = "New Work #{@work.name} created!"
-      redirect_to work_pictures_path(@work.id)
+      if params[:pictures]
+        params[:pictures].each do |picture| 
+          @work.pictures.create(file: picture)
+        end
+      end
+      redirect_to edit_work_path(@work.id)
+      #redirect_to work_pictures_path(@work.id)
     else
       flash[:notice] = "Create new work failed!"
       redirect_to action: :new
@@ -40,6 +46,11 @@ class WorksController < ApplicationController
 
     if @work.update_attributes(work_params)
       flash[:notice] = "Work: #{@work.name} updated!"
+      if params[:pictures]
+        params[:pictures].each do |picture| 
+          @work.pictures.create(file: picture)
+        end
+      end
       redirect_to action: :show
     else
       flash[:notice] = "Work: #{@work.name} update failed!"

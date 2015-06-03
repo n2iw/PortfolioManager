@@ -18,6 +18,10 @@
     <td><%= f.file_field :thumbnail %></td>
   </tr>
   <tr>
+    <td><%= label_tag 'Upload Pictures' %></td>
+    <td><%= file_field_tag "pictures[]", type: :file, multiple: true %></td>
+  </tr>
+  <tr>
     <td></td>
     <td><%= f.submit %></td>
   </tr>
