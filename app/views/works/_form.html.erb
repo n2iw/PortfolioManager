@@ -18,8 +18,12 @@
     <td><%= f.file_field :thumbnail %></td>
   </tr>
   <tr>
-    <td><%= label_tag 'Upload Pictures' %></td>
+    <td><%= label_tag 'Finished Pictures' %></td>
     <td><%= file_field_tag "pictures[]", type: :file, multiple: true %></td>
+  </tr>
+  <tr>
+    <td><%= label_tag 'Process Pictures' %></td>
+    <td><%= file_field_tag "process_pictures[]", type: :file, multiple: true %></td>
   </tr>
   <tr>
     <td></td>

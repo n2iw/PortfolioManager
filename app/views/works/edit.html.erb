@@ -15,7 +15,17 @@
   <% @pictures.each do |p| %>
     <tr>
       <td><%= image_tag p.file.url(:thumb), alt: 'Picture' %></td>
-      <td></td> 
+      <td></td>
+    </tr>
+  <% end %>
+  <tr>
+    <td><%= link_to button_tag('Manage Process Pictures', type: 'button'), work_process_pictures_path(@work) %></td>
+    <td></td>
+  </tr>
+  <% @process_pictures.each do |p| %>
+    <tr>
+      <td><%= image_tag p.file.url(:thumb), alt: 'Picture' %></td>
+      <td></td>
     </tr>
   <% end %>
 </table>

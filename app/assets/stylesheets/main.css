@@ -35,11 +35,6 @@ body
     margin-bottom: 20px;
 }
 
-.process-content
-{
-    width: 600px;
-}
-
 #about
 {
     width: 450px;
@@ -67,11 +62,6 @@ h2
 {
     font-size: 12px;
     font-weight: normal;
-}
-
-p.process-link
-{
-    text-align: center;
 }
 
 /*form
@@ -126,12 +116,16 @@ table{
   text-align: left;
 }
 
-/*td {
-  border: dotted thin;
-}*/
-
 #copyright
 {
     margin-top: 50px;
     margin-bottom: 30px;
+}
+
+div#process_link {
+  text-align: right;
+}
+
+div#finished_link {
+  text-align: left;
 }

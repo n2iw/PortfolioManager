@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root 'public#index'
   get 'work/:id' => 'public#show', as: :work
+  get 'work_process/:id' => 'public#show_process', as: :work_process
   get 'about' => 'public#about'
   get 'contact' => 'public#contact'
 
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
   resources :works do
     member do
       get :delete
+      get :show_process
       patch :update_position
     end
 

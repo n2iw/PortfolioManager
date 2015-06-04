@@ -2,6 +2,7 @@ class WorksController < ApplicationController
   layout 'admin'
 
   before_action :confirm_logged_in
+  before_action :find_work, except: [:new, :create, :index]
 
   def new
     @work = Work.new
@@ -12,13 +13,8 @@ class WorksController < ApplicationController
     @work = Work.new(work_params)
     if @work.save
       flash[:notice] = "New Work #{@work.name} created!"
-      if params[:pictures]
-        params[:pictures].each do |picture| 
-          @work.pictures.create(file: picture)
-        end
-      end
+      create_pictures
       redirect_to edit_work_path(@work.id)
-      #redirect_to work_pictures_path(@work.id)
     else
       flash[:notice] = "Create new work failed!"
       redirect_to action: :new
@@ -31,26 +27,24 @@ class WorksController < ApplicationController
   end
 
   def show
-    @work = Work.find(params[:id])
     @pictures = @work.pictures.sorted
+  end
+
+  def show_process
+    @pictures = @work.process_pictures.sorted
+    render 'show'
   end
 
   def edit
-    @work = Work.find(params[:id])
     @work_count = Work.count
     @pictures = @work.pictures.sorted
+    @process_pictures = @work.process_pictures.sorted
   end
 
   def update
-    @work = Work.find params[:id]
-
     if @work.update_attributes(work_params)
       flash[:notice] = "Work: #{@work.name} updated!"
-      if params[:pictures]
-        params[:pictures].each do |picture| 
-          @work.pictures.create(file: picture)
-        end
-      end
+      create_pictures
       redirect_to action: :show
     else
       flash[:notice] = "Work: #{@work.name} update failed!"
@@ -59,8 +53,6 @@ class WorksController < ApplicationController
   end
 
   def update_position
-    @work = Work.find params[:id]
-
     if @work.update_attributes(work_params)
       flash[:notice] = "Work: #{@work.name} updated!"
       redirect_to action: :index
@@ -71,11 +63,9 @@ class WorksController < ApplicationController
   end
 
   def delete
-    @work = Work.find params[:id]
   end
 
   def destroy
-    @work = Work.find params[:id]
     @work.destroy
     flash[:notice] = "Work: #{@work.name} deleted!"
     redirect_to action: :index
@@ -85,5 +75,23 @@ class WorksController < ApplicationController
   private
     def work_params
       params.require(:work).permit(:name, :thumbnail, :position, :visible, :description)
+    end
+
+    def create_pictures
+      if params[:pictures]
+        params[:pictures].each do |picture| 
+          @work.pictures.create(file: picture)
+        end
+      end
+
+      if params[:process_pictures]
+        params[:process_pictures].each do |picture| 
+          @work.process_pictures.create(file: picture)
+        end
+      end
+    end
+
+    def find_work
+      @work = Work.find params[:id]
     end
 end

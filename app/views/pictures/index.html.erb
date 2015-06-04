@@ -8,7 +8,7 @@
   <tr>
     <td></td>
     <td>
-      <%= form_for :picture, url: {action: :create}, html: {multipart: true} do |f| %>
+      <%= form_for @picture, url: {action: :create}, html: {multipart: true} do |f| %>
         <table summary="Picture form table" class="picture_form_table">
           <tr>
             <td><%= label_tag 'Upload Pictures' %></td>

@@ -2,9 +2,11 @@ class PicturesController < ApplicationController
   layout 'admin'
   
   before_action :confirm_logged_in
+  before_action :find_work
+  before_action :find_picture, except: [:create, :index]
+
 
   def create
-    @work = Work.find(params[:work_id])
     if params[:files]
       params[:files].each do |picture|
         @work.pictures.create file: picture
@@ -16,14 +18,12 @@ class PicturesController < ApplicationController
   end
 
   def index
-    @work = Work.find(params[:work_id])
-    @new_picture = @work.pictures.build
+    @picture = @work.pictures.build
     @pictures = @work.pictures.sorted
     @picture_count = @pictures.count + 1
   end
 
   def update
-    @picture = Picture.find params[:id]
     if @picture.update_attributes(picture_params)
       flash[:notice] = "Picture updated!"
       redirect_to work_pictures_path params[:work_id]
@@ -34,11 +34,9 @@ class PicturesController < ApplicationController
   end
 
   def delete
-    @picture = Picture.find params[:id]
   end
 
   def destroy
-    @picture = Picture.find params[:id]
     flash[:notice] = "Picture #{@picture.file_file_name} deleted!"
     @picture.destroy
     redirect_to work_pictures_path params[:work_id]
@@ -48,4 +46,13 @@ class PicturesController < ApplicationController
     def picture_params
       params.require(:picture).permit(:id, :file, :position)
     end
+
+    def find_work
+      @work = Work.find(params[:work_id])
+    end
+
+    def find_picture
+      @picture = Picture.find params[:id]
+    end
+
 end

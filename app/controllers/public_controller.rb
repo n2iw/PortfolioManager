@@ -18,4 +18,13 @@ class PublicController < ApplicationController
     end
     @pictures = @work.pictures.sorted
   end
+
+  def show_process
+    @work = Work.find(params[:id])
+    unless @work.visible
+      redirect_to action: :index
+    end
+    @pictures = @work.process_pictures.sorted
+    render 'show'
+  end
 end
