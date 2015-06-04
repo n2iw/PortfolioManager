@@ -3,6 +3,10 @@
     <h1><%= @work.name %></h1>
     <p><%= @work.description %></p>
 
+    <%# Facebook buttons begin %>
+    <div class="fb-like" data-href="<%= request.original_url %>" data-width="200" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+    <%# Facebook buttons end %>
+
     <%= render partial: 'process_links' %>
 
     <% @pictures.each do |p| %>
@@ -10,4 +14,8 @@
     <% end %>
 
     <%= render partial: 'process_links' %>
+    
+    <%# Facebook buttons begin %>
+    <div class="fb-like" data-href="<%= request.original_url %>" data-width="200" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+    <%# Facebook buttons end %>
 </div>

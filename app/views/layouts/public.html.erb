@@ -13,28 +13,33 @@
   <meta charset="utf-8">
 </head>
 <body>
-<% ####################### %>
-<div class="header_img">
-  <%= link_to image_tag("moyuzhang_seal.png", alt: "moyuzhang.com", id: "seal"), :root %>
-  <%= link_to image_tag("moyuzhangblack.png", alt: "moyuzhang.com"), :root %>
-</div>
-<div class="navigator">
-    <div class="navigator_row">
-        <div class="navigator_cell"><%= link_to image_tag("about.png", alt: "about"), about_path %></div>
-        <div class="navigator_cell"><%= link_to image_tag("work.png", alt: "work"), :root %></div>
-        <div class="navigator_cell"><%= link_to image_tag("contact.png", alt: "contact"), contact_path %></div>
-    </div>
-</div>
+  <%# Facebook JavaScript SDK begin %>
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  <%# Facebook JavaScript SDK end %>
 
-<% ####################### %>
+  <div class="header_img">
+    <%= link_to image_tag("moyuzhang_seal.png", alt: "moyuzhang.com", id: "seal"), :root %>
+    <%= link_to image_tag("moyuzhangblack.png", alt: "moyuzhang.com"), :root %>
+  </div>
+  <div class="navigator">
+      <div class="navigator_row">
+          <div class="navigator_cell"><%= link_to image_tag("about.png", alt: "about"), about_path %></div>
+          <div class="navigator_cell"><%= link_to image_tag("work.png", alt: "work"), :root %></div>
+          <div class="navigator_cell"><%= link_to image_tag("contact.png", alt: "contact"), contact_path %></div>
+      </div>
+  </div>
 
+  <%= yield %>
 
-<%= yield %>
-
-<% ####################### %>
-<div class="content" id="copyright">
-<%= image_tag "copyright.png", alt: "copyright" %>
-</div>
-<% ####################### %>
+  <div class="content" id="copyright">
+  <%= image_tag "copyright.png", alt: "copyright" %>
+  </div>
 </body>
 </html>
