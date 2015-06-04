@@ -1,4 +1,4 @@
-<%= error_messages_for(f.object) %>
+<%= error_messages_for(@picture) %>
 <table summary="Picture form table" class="picture_form_table">
   <tr>
     <td><%= f.label :position %></td><td><%= f.select :position, 1..@picture_count %></td>

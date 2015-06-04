@@ -17,7 +17,8 @@ class WorksController < ApplicationController
       redirect_to edit_work_path(@work.id)
     else
       flash[:notice] = "Create new work failed!"
-      redirect_to action: :new
+      @work_count = Work.count + 1
+      render 'new'
     end
   end
 
@@ -31,14 +32,11 @@ class WorksController < ApplicationController
   end
 
   def show_process
-    @pictures = @work.process_pictures.sorted
+    @pictures = @process_pictures
     render 'show'
   end
 
   def edit
-    @work_count = Work.count
-    @pictures = @work.pictures.sorted
-    @process_pictures = @work.process_pictures.sorted
   end
 
   def update
@@ -48,7 +46,7 @@ class WorksController < ApplicationController
       redirect_to action: :show
     else
       flash[:notice] = "Work: #{@work.name} update failed!"
-      redirect_to action: :edit
+      render 'edit'
     end
   end
 
@@ -93,5 +91,8 @@ class WorksController < ApplicationController
 
     def find_work
       @work = Work.find params[:id]
+      @work_count = Work.count
+      @pictures = @work.pictures.sorted
+      @process_pictures = @work.process_pictures.sorted
     end
 end
