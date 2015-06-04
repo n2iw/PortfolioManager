@@ -17,6 +17,7 @@ class PublicController < ApplicationController
       redirect_to action: :index
     end
     @pictures = @work.pictures.sorted
+    @process_picture_count = @work.process_pictures.count
   end
 
   def show_process

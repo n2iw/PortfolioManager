@@ -1,5 +1,7 @@
 <% if controller.action_name == 'show' %>
-  <div class="process_link" id="process_link"><%= link_to 'view process pictures', action: :show_process %></div>
+  <% if @process_picture_count > 0 %>
+    <div class="process_link" id="process_link"><%= link_to 'view process pictures', action: :show_process %></div>
+  <% end %>
 <% else %>
   <div class="process_link" id="finished_link"><%= link_to 'view finished pictures', action: :show %></div>
 <% end %>

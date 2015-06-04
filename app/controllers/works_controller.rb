@@ -29,6 +29,7 @@ class WorksController < ApplicationController
 
   def show
     @pictures = @work.pictures.sorted
+    @process_picture_count = @work.process_pictures.count
   end
 
   def show_process
