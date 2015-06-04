@@ -2,7 +2,9 @@
 <div class="content">
   <h1><%= @work.name %></h1>
   <p><%= @work.description %></p>
-  <p><%= link_to button_tag("Edit \"#{@work.name}\"", type: 'button'), edit_work_path(@work) %></p>
+  <p><%= link_to button_tag("Edit \"#{@work.name}\"", type: 'button'), edit_work_path(@work) %>
+     <%= link_to button_tag("Manage Process Pictures", type: 'button'), controller: :process_pictures %>
+  </p>
 
   <table id="manage_works_table">
   <tr>

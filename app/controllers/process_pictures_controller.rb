@@ -33,6 +33,7 @@ class ProcessPicturesController < ApplicationController
   end
 
   def delete
+    render 'pictures/delete'
   end
 
   def destroy

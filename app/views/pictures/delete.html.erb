@@ -1,6 +1,11 @@
 <% @title = "Delete Picture!" %>
 <h1>DELETE PICTURE!</h1> 
 <table>
+  </tr>
+    <td>
+      <%= link_to (button_tag 'Cancel', type: 'button'), action: :index %>
+    </td>
+  </tr>
   <tr>
     <td><h1><%= @picture.file_file_name %></h1></td>
   </tr>
