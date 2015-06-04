@@ -10,9 +10,9 @@ class ProcessPicturesController < ApplicationController
       params[:files].each do |picture|
         @work.process_pictures.create file: picture
       end
+      flash[:notice] = "#{params[:files].count} Pictures added!"
     end
 
-    flash[:notice] = "#{params[:files].count} Pictures added!"
     redirect_to work_process_pictures_path params[:work_id]
   end
 
