@@ -1,6 +1,11 @@
 <% @title = "Delete Work!" %>
 <h1>DELETE WORK!</h1> 
 <table>
+  </tr>
+    <td>
+      <%= link_to (button_tag 'Cancel', type: 'button'), action: :index %>
+    </td>
+  </tr>
   <tr>
     <td><%= @work.name %></td>
   </tr>
