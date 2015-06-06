@@ -5,7 +5,7 @@ class Work < ActiveRecord::Base
   has_many :process_pictures, dependent: :destroy
   acts_as_list
 
-  has_attached_file :thumbnail, :styles => { :thumb => "200x200>" }
+  has_attached_file :thumbnail, :styles => { :thumb => "200x200>", large: "800x800>" }
   validates_attachment_content_type :thumbnail, :content_type => /\Aimage\/.*\Z/
 
   validates :name, presence: true,
