@@ -55,7 +55,7 @@ class PublicController < ApplicationController
       @og_title = work.name
       @og_type = 'article'
       @og_url = work_url(@work)
-      @og_image = URI.join(request.url, work.thumbnail.url(:large))
+      @og_image = URI.join(request.url, work.thumbnail.url(:thumb))
       @og_description = work.description
     end
 
