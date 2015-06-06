@@ -25,7 +25,7 @@ class PublicController < ApplicationController
     @og_title = "Moyu Zhang Design"
     @og_type = 'website'
     @og_url = root_url
-    @og_image = view_context.asset_url('moyuzhang_seal.jpg')
+    @og_image = view_context.asset_url('moyuzhang_seal.png')
     @og_description = 'Works of Moyu Zhang'
   end
 
