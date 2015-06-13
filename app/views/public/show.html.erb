@@ -3,11 +3,7 @@
     <h1><%= @work.name %></h1>
     <p><%= @work.description %></p>
 
-    <div class="social-buttons">
-      <%# Facebook buttons begin %>
-      <div class="fb-like" data-href="<%= request.original_url %>" data-width="200" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
-      <%# Facebook buttons end %>
-    </div>
+    <%= render partial: 'social_buttons' %>
 
     <%= render partial: 'process_links' %>
 
@@ -17,9 +13,6 @@
 
     <%= render partial: 'process_links' %>
     
-    <div class="social-buttons">
-      <%# Facebook buttons begin %>
-      <div class="fb-like" data-href="<%= request.original_url %>" data-width="200" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
-      <%# Facebook buttons end %>
+    <%= render partial: 'social_buttons' %>
     </div>
 </div>
