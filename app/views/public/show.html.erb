@@ -12,7 +12,7 @@
     <%= render partial: 'process_links' %>
 
     <% @pictures.each do |p| %>
-      <%= image_tag p.file.url(:large), alt: 'Picture' %>
+      <%= image_tag p.file.url(:large), alt: "#{@work.name} ##{p.position}" %>
     <% end %>
 
     <%= render partial: 'process_links' %>
