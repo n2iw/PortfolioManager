@@ -1,14 +1,14 @@
 <% @title = @work.name %>
 <div class="content">
     <h1><%= @work.name %></h1>
-    <p><%= @work.description %></p>
+    <p><pre><%= @work.description %></pre></p>
 
     <%= render partial: 'social_buttons' %>
 
     <%= render partial: 'process_links' %>
 
     <% @pictures.each do |p| %>
-      <%= image_tag p.file.url(:large), alt: "#{@work.name} ##{p.position}" %>
+      <%= image_tag p.file.url(:large), alt: "#{@work.name} ##{p.position} by Moyu Zhang" %>
     <% end %>
 
     <%= render partial: 'process_links' %>
