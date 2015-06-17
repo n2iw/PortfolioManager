@@ -3,24 +3,29 @@
     <div id="contact_img">
         <%= image_tag "contact.jpg", alt: "moyuzhang" %>
     </div>
-    <div id="contact">
-        <p><a href="mailto:vivienmoyuzhang@gmail.com">vivienmoyuzhang@gmail.com</a></p>
-        <p>(585) 355-6988</p>
-        <p>
-        <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
-        <script type="IN/MemberProfile" data-id="https://www.linkedin.com/pub/moyu-zhang/38/385/54a" data-format="hover" data-related="false" data-text="Moyu Zhang"></script>
-        </p>
-        <p><a target="_blank" href="https://www.facebook.com/moyu.zhang">Facebook</a></p>
-        <p><a target="_blank" href="https://www.behance.net/MOYU">Bēhance</a></p>
-        <p><a target="_blank" href=" http://www.pinterest.com/cutecuterice/">Pinterest</a></p>
-        <p>
-        <style>.ig-b- { display: inline-block; }
-.ig-b- img { visibility: hidden; }
-.ig-b-:hover { background-position: 0 -60px; } .ig-b-:active { background-position: 0 -120px; }
-.ig-b-v-24 { width: 137px; height: 24px; background: url(//badges.instagram.com/static/images/ig-badge-view-sprite-24.png) no-repeat 0 0; }
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-  .ig-b-v-24 { background-image: url(//badges.instagram.com/static/images/ig-badge-view-sprite-24@2x.png); background-size: 160px 178px; } }</style>
-        <a href="http://instagram.com/moyu_zhang?ref=badge" class="ig-b- ig-b-v-24"><img src="//badges.instagram.com/static/images/ig-badge-view-24.png" alt="Instagram" /></a>
-        </p>
+    <div id="contacts">
+      <div class="contact" id="email">
+        <a href="mailto:vivienmoyuzhang@gmail.com"><%= image_tag 'email_32.png' %></a>
+      </div>
+
+      <div class="contact" id="linkedin">
+        <a target="_blank" href="https://www.linkedin.com/pub/moyu-zhang/38/385/54a"><%= image_tag 'linkedin_32.png' %></a>
+      </div>
+
+      <div class="contact" id="facebook">
+        <a target="_blank" href="https://www.facebook.com/moyu.zhang?fref=nf"><%= image_tag 'facebook_32.png' %></a>
+      </div>
+        
+      <div class="contact" id="behance">
+        <a target="_blank" href="https://www.behance.net/MOYU"> <%= image_tag 'behance_32.png' %></a>
+      </div>
+
+      <div class="contact" id="pinterest">
+        <a target="_blank" href=" http://www.pinterest.com/cutecuterice/"><%= image_tag 'pinterest_32.png' %></a>
+      </div>
+
+      <div class="contact" id="instagram">
+        <a href="http://instagram.com/moyu_zhang?ref=badge"><%= image_tag 'instagram_32.png' %></a>
+      </div>
     </div>
 </div>
