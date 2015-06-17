@@ -25,7 +25,7 @@ class PublicController < ApplicationController
     @og_title = "Moyu Zhang Design"
     @og_type = 'website'
     @og_url = root_url
-    @og_image = "http://moyuzhang.com/system/pictures/files/000/000/126/large/Dance_No.2_B.jpg?1434245509"
+    @og_image = "http://moyuzhang.com/system/works/thumbnails/000/000/022/thumb/Dance_No.2_thumbnail_copy.jpg?1434254667"
     @og_description = 'Works of Moyu Zhang'
   end
 
