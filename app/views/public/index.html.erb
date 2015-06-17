@@ -1,4 +1,5 @@
 <% @title = 'Works' %>
+<%= render partial: 'social_buttons' %>
 <div class="content" id="works">
   <% count = 0 %>
   <% @works.each do |work| %>
@@ -18,3 +19,5 @@
     </div>
   <% end %>
 </div>
+<br>
+<%= render partial: 'social_buttons' %>

@@ -52,7 +52,7 @@ class PublicController < ApplicationController
     end
 
     def set_og_tags(work)
-      @og_title = work.name
+      @og_title = work.name + " by Moyu Zhang"
       @og_type = 'article'
       @og_url = work_url(@work)
       @og_image = URI.join(request.url, work.thumbnail.url(:thumb))
