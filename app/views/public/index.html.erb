@@ -1,23 +1,17 @@
 <% @title = 'Works' %>
-<%= render partial: 'social_buttons' %>
-<div class="content" id="works">
-  <% count = 0 %>
-  <% @works.each do |work| %>
-    <% if count % 3 == 0 %>
-      <div class="works_row">
-    <% end %>
 
-    <div class="works_cell"><h2><%= work.name %></h2>
-      <%= link_to image_tag(work.thumbnail.url(:thumb), alt: "#{work.name} by Moyu Zhang"), work_path(id: work.id)  %>
-    </div>
-    <% if count % 3 == 2 %>
+  <div class='row index-social'><%= render partial: 'social_buttons' %></div>
+
+  <div id='works' class='row'>
+    <% @works.each do |work| %>
+      <div class="work-cell col-md-4 col-xs-6">
+        <h2 class='work-name'><%= work.name %></h2>
+        <p>
+        <%= link_to image_tag(work.thumbnail.url(:thumb), alt: "#{work.name} by Moyu Zhang", class:'work-thumb'),
+          work_path(id: work.id) %>
+      </p>
       </div>
     <% end %>
-    <% count += 1 %>
-  <% end %>
-  <% if count % 3 != 0 %>
-    </div>
-  <% end %>
-</div>
-<br>
-<%= render partial: 'social_buttons' %>
+  </div>
+
+  <div class='row index-social'><%= render partial: 'social_buttons' %></div>

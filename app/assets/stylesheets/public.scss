@@ -1,3 +1,99 @@
 // Place all the styles related to the Public controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container {
+  max-width: 830px;
+}
+
+.social-buttons {
+  line-height: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.index-social .social-buttons {
+  text-align: center;
+}
+
+.work-cell {
+  text-align: center;
+}
+
+h2.work-name {
+  font-size: 16px;
+  text-align: center;
+}
+
+.navbar-static-top {
+  min-height: 80px;
+}
+
+.navbar-text {
+  font-size: 38px;
+}
+
+.navbar-nav li a {
+ line-height: 50px;
+}
+
+#about-image, #contact-image, .work-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-text {
+  padding: 20px;
+  line-height: 20px;
+}
+
+#contact-list {
+  text-align: center;
+  padding: 20px;
+}
+
+pre.work-description {
+  font-family: inherit;
+  text-align: center;
+  border: none;
+  background-color: transparent;
+  margin: 0px;
+}
+
+.process-links {
+  text-align: right;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.links {
+  vertical-align: middle;
+}
+
+.process-link .btn-sm {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+  font-size: 12px;
+}
