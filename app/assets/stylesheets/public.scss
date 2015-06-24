@@ -56,10 +56,10 @@ h2.work-name {
 
 pre.work-description {
   font-family: inherit;
-  text-align: center;
-  border: none;
+  /*text-align: left;*/
+  border: dotted thin;
   background-color: transparent;
-  margin: 0px;
+  margin: 15px;
 }
 
 .process-links {
@@ -77,23 +77,36 @@ pre.work-description {
   padding-bottom: 0px;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
-}
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+.footer {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-size: 12px;
+  text-align: center;
 }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  background-color: #f5f5f5;
-  font-size: 12px;
+
+.header_img {
+  margin-top: 80px;
+  text-align: center;
 }
+
+#seal {
+  padding-bottom: 15px;
+  padding-right: 40px;
+}
+
+
+#navigator {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  button {
+    font-weight: bold;
+    font-style: italic;
+  }
+}
+
+.work-image {
+  width: 100%;
+}
+
