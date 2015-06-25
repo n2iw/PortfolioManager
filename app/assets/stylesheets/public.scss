@@ -26,6 +26,14 @@ h2.work-name {
   text-align: center;
 }
 
+pre.work-description {
+  font-family: inherit;
+  background-color: transparent;
+  border: none;
+  margin: 15px;
+  text-align: center;
+}
+
 .navbar-static-top {
   min-height: 80px;
 }
@@ -52,14 +60,6 @@ h2.work-name {
 #contact-list {
   text-align: center;
   padding: 20px;
-}
-
-pre.work-description {
-  font-family: inherit;
-  /*text-align: left;*/
-  border: dotted thin;
-  background-color: transparent;
-  margin: 15px;
 }
 
 .process-links {
@@ -95,18 +95,17 @@ pre.work-description {
   padding-right: 40px;
 }
 
-
 #navigator {
   text-align: center;
   margin-top: 20px;
   margin-bottom: 20px;
-  button {
-    font-weight: bold;
-    font-style: italic;
-  }
 }
 
 .work-image {
+  max-width: 800px;
   width: 100%;
 }
 
+#navigator li {
+  width: 100px;
+}
