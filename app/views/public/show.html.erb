@@ -1,17 +1,23 @@
 <% @title = @work.name %>
-<div class="content">
-    <h1><%= @work.name %></h1>
+<h6 class='work-name' id="work-name"><%= @work.name %></h2>
+<!--<div class"row">
+  <div class="col-sm-8">-->
     <pre class="work-description"><%= @work.description %></pre>
+  <!--</div>
+</div>-->
 
-    <%= render partial: 'social_buttons' %>
+<div class='row links'>
+  <div class='col-xs-8 pull-lefg'><%= render partial: 'social_buttons' %></div>
+  <div class='col-xs-4 pull-right'><%= render partial: 'process_links' %></div>
+</div>
 
-    <%= render partial: 'process_links' %>
+<div id='pictures' class='row'>
+  <% @pictures.each do |p| %>
+    <%= image_tag p.file.url(:large), class: 'work-image', alt: "#{@work.name} ##{p.position} by Moyu Zhang" %>
+  <% end %>
+</div>
 
-    <% @pictures.each do |p| %>
-      <%= image_tag p.file.url(:large), alt: "#{@work.name} ##{p.position} by Moyu Zhang" %>
-    <% end %>
-
-    <%= render partial: 'process_links' %>
-    
-    <%= render partial: 'social_buttons' %>
+<div class='row'>
+  <div class='col-xs-8'><%= render partial: 'social_buttons' %></div>
+  <div class='col-xs-4'><%= render partial: 'process_links' %></div>
 </div>

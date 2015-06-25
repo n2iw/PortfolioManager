@@ -1,11 +1,11 @@
 <% @title = 'About Moyu Zhang' %>
-<div class="content" id="about">
-    <div id="about_img">
-        <%= image_tag "moyuzhang.jpg", alt: "moyuzhang" %>
-    </div>
-    <div id="about_text">
+<div class=''>
+  <div class='row' >
+    <%= image_tag "moyuzhang.jpg", alt: "moyuzhang", id: 'about-image' %>
+  </div>
+  <div class='row'>
       <% @paragraphs.each do |p| %>
-        <p><%= p.paragraph %></p>
+        <p class='about-text col-xs-8 col-xs-offset-2'><%= p.paragraph %></p>
       <% end %>
-    </div>
+  </div>
 </div>
