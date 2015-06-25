@@ -21,9 +21,14 @@
   text-align: center;
 }
 
-h2.work-name {
-  font-size: 16px;
+.work-name {
   text-align: center;
+}
+
+#work-name {
+  color: red;
+  font-weight: bold;
+  font-size: 13px;
 }
 
 pre.work-description {
