@@ -1,0 +1,42 @@
+<% @title = 'Manage Works' %>
+<div class="content" id="works">
+  <table id="manage_works_table">
+  <% @works.each do |work| %>
+    <tr>
+      <td><h1><%= work.name %></h1>
+      <%= link_to button_tag("Delete #{work.name}!", type: 'button'), delete_work_path(work) %></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><%= link_to image_tag(work.thumbnail.url(:thumb), alt: work.name), {action: :show, id: work.id}  %></td>
+      <td><%= form_for work, url: update_position_work_path(work) do |f| %>
+        <table class="work_form_table">
+          <tr>
+            <td><%= f.label :position %></td><td><%= f.select :position, 1..@work_count %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :visible %></td><td><%= f.check_box :visible %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= f.submit 'Update Position and Visibility'%></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= link_to button_tag("Edit  #{work.name}", type: 'button'), edit_work_path(work) %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= link_to button_tag('Manage Pictures', type: 'button'), work_pictures_path(work) %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= link_to button_tag('Manage Process Pictures', type: 'button'), work_process_pictures_path(work) %></td>
+          </tr>
+        </table>
+      <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+</div>

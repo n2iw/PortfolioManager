@@ -4,6 +4,8 @@
         <%= image_tag "moyuzhang.jpg", alt: "moyuzhang" %>
     </div>
     <div id="about_text">
-        <p>Moyu Zhang was an architect when she realized she wanted to actually make the things she was designing. She set aside her architecture degree and eight years of work experience and enrolled in RIT's furniture design MFA program. Much of her work is a mixture of sculptural and functional, and shows her interest in the materiality of wood. She currently is in her thesis year in the school of American Craft. This website was established as a means to create the vehicles for her ongoing pursuit.</p>
+      <% @paragraphs.each do |p| %>
+        <p><%= p.paragraph %></p>
+      <% end %>
     </div>
 </div>

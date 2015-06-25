@@ -10,6 +10,7 @@ class PublicController < ApplicationController
     @og_url = about_url
     @og_image = view_context.asset_url('moyuzhang.jpg')
     @og_description = 'About Moyu Zhang'
+    @paragraphs = About.sorted
   end
 
   def contact
