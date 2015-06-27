@@ -1,0 +1,5 @@
+<% @title = 'Manage About Paragraphs' %>
+<h4 class='form-title'>Edit About Text</h4>
+<%= form_for( @paragraph, :url => {action: :update}, html:{role: "form", class: "form-horizontal"} ) do |f| %>
+  <%= render partial: 'form', locals: {f: f} %>
+<% end %>

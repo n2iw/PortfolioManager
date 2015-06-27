@@ -1,10 +1,8 @@
 <% @title = @work.name %>
-<h6 class='work-name' id="work-name"><%= @work.name %></h2>
-<!--<div class"row">
-  <div class="col-sm-8">-->
-    <pre class="work-description"><%= @work.description %></pre>
-  <!--</div>
-</div>-->
+<div class='work-header'>
+  <h5 class='work-name' id="work-name"><%= @work.name %></h2>
+  <p id="work-description"><%= @work.description %></p>
+</div>
 
 <div class='row links'>
   <div class='col-xs-8 pull-lefg'><%= render partial: 'social_buttons' %></div>

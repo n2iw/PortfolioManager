@@ -14,14 +14,17 @@
 </head>
 <body>
 
-<div class="navigator">
-    <div class="navigator_row">
-        <div class="navigator_cell"><%= link_to 'Home Page', root_path %></div>
-        <div class="navigator_cell"><%= link_to 'Manage Works', works_path %></div>
-        <div class="navigator_cell"><%= link_to 'Add New Work', new_work_path %></div>
-        <div class="navigator_cell"><%= link_to 'Login', access_login_path %></div>
-        <div class="navigator_cell"><%= link_to 'Log Out', access_logout_path %></div>
-    </div>
+<div class="navbar navbar-default">
+  <div class="container">
+      <%= link_to 'Home Page', root_path, class: 'navbar-brand' %>
+      <ul class='navbar-nav nav navbar-right'>
+        <li><%= link_to 'Manage Works', works_path, class: 'navbar-link' %></li>
+        <li><%= link_to 'Add New Work', new_work_path, class: 'navbar-link'   %></li>
+        <li><%= link_to 'Edit About', edit_about_path, class: 'navbar-link'   %></li>
+        <li><%= link_to 'Login', access_login_path, class: 'navbar-link'  %></li>
+        <li><%= link_to 'Log Out', access_logout_path, class: 'navbar-link'  %></li>
+      </ul>
+  </div>
 </div>
 
 <% if !flash[:notice].blank? %>
@@ -30,7 +33,9 @@
   </div>
 <% end %>
 
-<%= yield %>
+<div class="container">
+  <%= yield %>
+</div>
 
 </body>
 </html>

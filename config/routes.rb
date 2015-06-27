@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   post 'access/attempt_login'
   get 'access/logout'
 
+  get 'edit_about' => 'about_paragraphs#edit'
+  patch 'update_about' => 'about_paragraphs#update'
+
   resources :works do
     member do
       get :delete

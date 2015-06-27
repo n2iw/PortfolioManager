@@ -4,8 +4,6 @@
     <%= image_tag "moyuzhang.jpg", alt: "moyuzhang", id: 'about-image' %>
   </div>
   <div class='row'>
-      <% @paragraphs.each do |p| %>
-        <p class='about-text col-xs-8 col-xs-offset-2'><%= p.paragraph %></p>
-      <% end %>
+    <p id="about-text" class='col-xs-8 col-xs-offset-2'><%= @paragraph.text %></p>
   </div>
 </div>

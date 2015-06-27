@@ -6,6 +6,35 @@
   max-width: 830px;
 }
 
+.header_images {
+  margin-top: 80px;
+  #seal {
+    padding-bottom: 15px;
+    padding-right: 40px;
+  }
+}
+
+#navigator {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  li {
+    width: 100px;
+  }
+}
+
+.footer {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-size: 12px;
+}
+
+body,
+.index-social .social-buttons
+{
+  text-align: center;
+  font-size: 13px;
+}
+
 .social-buttons {
   line-height: 10px;
   margin-top: 10px;
@@ -13,110 +42,47 @@
   text-align: left;
 }
 
-.index-social .social-buttons {
-  text-align: center;
+/* in public#show page */
+.work-header {
+  #work-name {
+    font-weight: bold;
+    font-size: 13px;
+  }
+  #work-description {
+    white-space: pre ;
+  }
 }
 
-.work-cell {
-  text-align: center;
-}
-
-.work-name {
-  text-align: center;
-}
-
-#work-name {
-  font-weight: bold;
-  font-size: 13px;
-}
-
-pre {
-  font-family: inherit;
-  background-color: transparent;
-  border: none;
-  margin: 15px;
-}
-
-.work-description {
-  text-align: center;
-}
-.about-text {
-  font-size: 13px;
-  padding: 20px;
-  line-height: 20px;
-  text-indent: 40px;
-  text-align: justify;
-}
-
-.navbar-static-top {
-  min-height: 80px;
-}
-
-.navbar-text {
-  font-size: 38px;
-}
-
-.navbar-nav li a {
- line-height: 50px;
-}
-
-#about-image, #contact-image, .work-image {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
-
-#contact-list {
-  text-align: center;
-  padding: 20px;
-}
-
-.process-links {
-  text-align: right;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
 
 .links {
   vertical-align: middle;
-}
-
-.process-link .btn-sm {
-  padding-top: 0px;
-  padding-bottom: 0px;
-}
-
-.footer {
-  margin-top: 50px;
-  margin-bottom: 30px;
-  font-size: 12px;
-  text-align: center;
-}
-
-
-.header_img {
-  margin-top: 80px;
-  text-align: center;
-}
-
-#seal {
-  padding-bottom: 15px;
-  padding-right: 40px;
-}
-
-#navigator {
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  .process-links {
+    text-align: right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .process-link .btn-sm {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
 }
 
 .work-image {
   max-width: 800px;
   width: 100%;
 }
+/* end public#show page */
 
-#navigator li {
-  width: 100px;
+/* public#about */
+#about-text {
+  padding: 20px;
+  line-height: 20px;
+  text-indent: 40px;
+  text-align: justify;
+  white-space: pre-line;
+}
+
+/* public#contact */
+#contact-list {
+  padding: 20px;
 }
