@@ -14,31 +14,23 @@
 </div>
 
 <div class='row'>
-  <div class='col-md-3'>
-    <h5>Pictures</h5>
-    <% @pictures.each do |p| %>
-      <div><%= image_tag p.file.url(:thumb), alt: 'Picture' %></div>
-    <% end %>
-  </div>
-
-  <div class='col-md-3'>
-    <div class=''>
+  <div class='col-md-5'>
+    <div class='form-group'>
       <%= link_to button_tag('Manage Pictures', type: 'button', class: 'btn btn-primary'), work_pictures_path(@work) %>
     </div>
-  </div>
 
-  <div class='col-md-3'>
-    <h5>Process Pictures</h5>
-    <% @process_pictures.each do |p| %>
-      <div><%= image_tag p.file.url(:thumb), alt: 'Picture' %></div>
+    <% @pictures.each do |p| %>
+      <div class='form-group'><%= image_tag p.file.url(:thumb), alt: 'Picture' %></div>
     <% end %>
   </div>
 
-  <div class='col-md-3'>
-    <%= link_to button_tag('Manage Process Pictures', type: 'button', class: 'btn btn-primary'), work_process_pictures_path(@work) %>
+  <div class='col-md-5 col-md-offset-1'>
+    <div class='form-group'>
+      <%= link_to button_tag('Manage Process Pictures', type: 'button', class: 'btn btn-primary'), work_process_pictures_path(@work) %>
+    </div>
+
+    <% @process_pictures.each do |p| %>
+      <div class='form-group'><%= image_tag p.file.url(:thumb), alt: 'Picture' %></div>
+    <% end %>
   </div>
 </div>
-
-
-
-
