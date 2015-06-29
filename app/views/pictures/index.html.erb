@@ -4,12 +4,15 @@
     <h4 id='work-name'><%= @work.name %></h4>
     <p id="work-description"><%= @work.description %></p>
     <div class=""><%= link_to 'Edit this work', edit_work_path(@work), class: 'btn btn-primary' %>
-      <%= link_to "Manage Process Pictures", {controller: :process_pictures}, class: 'btn btn-info' %>
+    <%= link_to "Manage Process Pictures", {controller: :process_pictures}, class: 'btn btn-info' %>
     </div>
   </div>
 </div>
 
 <div class='well'>
+  <div class='form-group'>
+    <h3>Finished Pictures</h3>
+  </div>
   <%= form_for @picture, url: {action: :create}, html: {multipart: true, class: 'form-horizontal'} do |f| %>
     <div class='form-group'>
       <%= label_tag 'new-files', 'Choose Pictures to upload', class: 'control-label col-md-3' %>
@@ -25,12 +28,16 @@
 <% @pictures.each do |picture| %>
   <div class='well'>
     <div class='row'>
-      <div class='col-md-4'><%= image_tag picture.file.url(:thumb), alt: 'Picture' %></div> 
+      <div class='form-group'>
+        <div class='col-md-4'>
+          <h4><%= picture.file_file_name %></h4>
+          <%= image_tag picture.file.url(:thumb), alt: 'Picture' %>
+        </div>
+      </div>
 
       <div class='col-md-8'>
         <div class='row'>
           <%= form_for picture, url: {action: :update, id: picture.id}, html: {multipart: true, class: 'form-horizontal'} do |f| %>
-            <div class='form-group'><h4><%= picture.file_file_name %></h4></div>
             <%= render partial: 'form', locals: {f: f} %>
             <div class='form-group'>
               <div class='col-md-5 col-md-offset-2'>

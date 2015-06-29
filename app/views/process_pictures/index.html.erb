@@ -10,6 +10,9 @@
 </div>
 
 <div class='well'>
+  <div class='form-group'>
+    <h3>Process Pictures</h3>
+  </div>
   <%= form_for @picture, url: {action: :create}, html: {multipart: true, class: 'form-horizontal'} do |f| %>
     <div class='form-group'>
       <%= label_tag 'new-files', 'Choose Pictures to upload', class: 'control-label col-md-3' %>
@@ -25,16 +28,18 @@
 <% @pictures.each do |picture| %>
   <div class='well'>
     <div class='row'>
-      <div class='col-md-4'><%= image_tag picture.file.url(:thumb), alt: 'Picture' %></div> 
+      <div class='col-md-4'>
+        <h4><%= picture.file_file_name %></h4>
+        <%= image_tag picture.file.url(:thumb), alt: 'Picture' %>
+      </div> 
 
       <div class='col-md-8'>
         <div class='row'>
           <%= form_for picture, url: {action: :update, id: picture.id}, html: {multipart: true, class: 'form-horizontal'} do |f| %>
-            <div class='form-group'><h4><%= picture.file_file_name %></h4></div>
             <%= render partial: 'pictures/form', locals: {f: f} %>
             <div class='form-group'>
               <div class='col-md-5 col-md-offset-2'>
-                <%= link_to "Delete", delete_work_picture_path(id: picture.id), class: 'form-control btn btn-danger ' %>
+                <%= link_to "Delete", delete_work_process_picture_path(id: picture.id), class: 'form-control btn btn-danger ' %>
               </div>
             </div>
           <% end %>

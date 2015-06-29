@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <% if @title %>
-    <title><%= @title %> | moyuzhang.com</title>
-  <% else %>
-    <title>Management on moyuzhang.com</title>
-  <% end %>
+  <head>
+    <meta charset="utf-8">
+    <% if @title %>
+      <title><%= @title %> | moyuzhang.com</title>
+    <% else %>
+      <title>Management on moyuzhang.com</title>
+    <% end %>
 
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-<div class="navbar navbar-default">
-  <div class="container">
-      <%= link_to 'Home Page', root_path, class: 'navbar-brand' %>
-      <ul class='navbar-nav nav navbar-right'>
-        <li><%= link_to 'Manage Works', works_path, class: 'navbar-link' %></li>
-        <li><%= link_to 'Add New Work', new_work_path, class: 'navbar-link'   %></li>
-        <li><%= link_to 'Edit About', edit_about_path, class: 'navbar-link'   %></li>
-        <li><%= link_to 'Login', access_login_path, class: 'navbar-link'  %></li>
-        <li><%= link_to 'Log Out', access_logout_path, class: 'navbar-link'  %></li>
-      </ul>
-  </div>
-</div>
+    <div class="navbar navbar-default">
+      <div class="container">
+        <%= link_to 'Home Page', root_path, class: 'navbar-brand' %>
+        <ul class='navbar-nav nav navbar-right'>
+          <li><%= link_to 'Manage Works', works_path, class: 'navbar-link' %></li>
+          <li><%= link_to 'Add New Work', new_work_path, class: 'navbar-link'   %></li>
+          <li><%= link_to 'Edit About', edit_about_path, class: 'navbar-link'   %></li>
+          <li><%= link_to 'Login', access_login_path, class: 'navbar-link'  %></li>
+          <li><%= link_to 'Log Out', access_logout_path, class: 'navbar-link'  %></li>
+        </ul>
+      </div>
+    </div>
 
-<% if !flash[:notice].blank? %>
-  <div class="notice">
-    <%= flash[:notice] %>
-  </div>
-<% end %>
+    <div class="container">
+      <% if !flash[:notice].blank? %>
+        <div class="well">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
 
-<div class="container">
-  <%= yield %>
-</div>
+      <%= yield %>
+    </div>
 
-</body>
+  </body>
 </html>
