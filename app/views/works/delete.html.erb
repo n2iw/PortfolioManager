@@ -1,14 +1,12 @@
 <% @title = "Delete Work!" %>
-<div class='col-md-4 col-md-offset-4 delete-work'>
-  <h4 class='form-title'>Delete "<%= @work.name %>"?</h3> 
+<div class='col-md-4 col-md-offset-4 delete-work well'>
+  <h4 class='form-title'>Delete "<%= @work.name %>"?</h4> 
 
   <%= image_tag @work.thumbnail.url(:thumb), alt: "#{@work.name}" %>
   <%= form_for @work, :url => {action: :destroy}, method: 'delete', html: {class: 'form delete-work'} do |f| %>
     <div class='form-group'>
-      <%= link_to (button_tag 'Cancel', type: 'button', class: 'btn btn-success'), action: :index %>
+      <%= link_to 'Cancel', {action: :index}, class: 'btn btn-success' %>
       <%= f.submit 'Delete', class: 'btn btn-danger'%>
-    </div>
-    <div class='form-group'>
     </div>
   <% end %>
 </div>

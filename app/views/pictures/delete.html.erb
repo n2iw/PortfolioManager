@@ -1,22 +1,12 @@
 <% @title = "Delete Picture!" %>
-<h1>DELETE PICTURE!</h1> 
-<table>
-  </tr>
-    <td>
-      <%= link_to (button_tag 'Cancel', type: 'button'), action: :index %>
-    </td>
-  </tr>
-  <tr>
-    <td><h1><%= @picture.file_file_name %></h1></td>
-  </tr>
-  <tr>
-    <td><%= image_tag @picture.file.url(:thumb) %></td>
-  </tr>
-  </tr>
-    <td>
-      <%= form_for @picture, :url => {action: :destroy},  method: 'delete', html:{class: 'delete_picture'} do |f| %>
-        <%= f.submit "DELETE #{@picture.file_file_name}!!!" %>
-      <% end %>
-    </td>
-  </tr>
-</table>
+<div class='col-md-4 col-md-offset-4 delete-work well'>
+  <h4 class='form-title'>Delete "<%= @picture.file_file_name %>"?</h4>
+
+  <%= image_tag @picture.file.url(:thumb) %>
+  <%= form_for @picture, :url => {action: :destroy},  method: 'delete', html:{class: 'form delete-picture'} do |f| %>
+    <div class='form-group'>
+      <%= link_to 'Cancel', {action: :index}, class: 'btn btn-success' %>
+      <%= f.submit "Delete", class: 'btn btn-danger' %>
+    </div>
+  <% end %>
+</div>

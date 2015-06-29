@@ -1,7 +1,7 @@
 <% @title = "Edit \"#{@work.name}\"" %>
 <h4 class='form-title'>Edit "<%= @work.name %>"</h4>
 
-<div class='row'>
+<div class='row well'>
   <div class='col-md-3'>
     <%= link_to image_tag(@work.thumbnail.url(:thumb), alt: @work.name), {action: :show} %>
   </div>
@@ -14,9 +14,9 @@
 </div>
 
 <div class='row'>
-  <div class='col-md-5'>
+  <div class='col-md-5 well'>
     <div class='form-group'>
-      <%= link_to button_tag('Manage Pictures', type: 'button', class: 'btn btn-primary'), work_pictures_path(@work) %>
+      <%= link_to button_tag('Manage Pictures', type: 'button', class: 'btn btn-info'), work_pictures_path(@work) %>
     </div>
 
     <% @pictures.each do |p| %>
@@ -24,9 +24,9 @@
     <% end %>
   </div>
 
-  <div class='col-md-5 col-md-offset-1'>
+  <div class='col-md-5 col-md-offset-1 well'>
     <div class='form-group'>
-      <%= link_to button_tag('Manage Process Pictures', type: 'button', class: 'btn btn-primary'), work_process_pictures_path(@work) %>
+      <%= link_to button_tag('Manage Process Pictures', type: 'button', class: 'btn btn-info'), work_process_pictures_path(@work) %>
     </div>
 
     <% @process_pictures.each do |p| %>
