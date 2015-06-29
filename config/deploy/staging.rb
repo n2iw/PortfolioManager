@@ -8,14 +8,14 @@ role :app, %w{ubuntu@52.1.250.117}
 role :web, %w{ubuntu@52.1.250.117}
 role :db,  %w{ubuntu@52.1.250.117}
 
-set :application, 'moyuzhang_app'
+set :application, 'moyuzhang_app_staging'
 set :repo_url, 'git@bitbucket.org:jamesying/moyuzhang_app.git'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, '~/sites/moyuzhang.com'
+set :deploy_to, '~/sites/staging.moyuzhang.com'
 
 # Extended Server Syntax
 # ======================
@@ -23,7 +23,7 @@ set :deploy_to, '~/sites/moyuzhang.com'
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
-set :stage, :production
+set :stage, :staging
 server '52.1.250.117', user: 'ubuntu', roles: %w{web app}, my_property: :my_value
 
 # you can set custom ssh options
