@@ -1,54 +1,54 @@
 <%= error_messages_for(@work) %>
-    <div class='form-group'>
-      <%= f.label :name, class: 'control-label col-md-3' %>
-      <div class='col-md-9'>
-        <%= f.text_field :name, class: 'form-control' %>
-      </div>
-    </div>
+<div class='form-group'>
+  <%= f.label :name, class: 'control-label col-md-3' %>
+  <div class='col-md-9'>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+</div>
 
-    <div class='form-group'>
-      <%= f.label :position, class: 'control-label col-md-3' %>
-      <div class=' col-md-3'>
-        <%= f.select :position, 1..@work_count, {}, class: 'form-control' %>
-      </div>
-    </div>
-    
-    <div class='form-group'>
-      <%= f.label :visible, class: 'control-label col-md-3'  %>
-      <div class=' col-md-9'>
-        <%= f.check_box :visible, class: 'form-control'  %>
-      </div>
-    </div>
+<div class='form-group'>
+  <%= f.label :position, class: 'control-label col-md-3' %>
+  <div class=' col-md-3'>
+    <%= f.select :position, 1..@work_count, {}, class: 'form-control' %>
+  </div>
+</div>
 
-    <div class='form-group'>
-      <%= f.label :description, class: 'control-label col-md-3' %>
-      <div class=' col-md-9'>
-        <%= f.text_area :description, size: '40x5', class: 'form-control'  %>
-      </div>
-    </div>
+<div class='form-group'>
+  <%= f.label :visible, class: 'control-label col-md-3'  %>
+  <div class=' col-md-9'>
+    <%= f.check_box :visible, class: 'form-control'  %>
+  </div>
+</div>
 
-    <div class='form-group'>
-      <%= f.label :thumbnail, class: 'control-label col-md-3' %>
-      <div class=' col-md-9'>
-        <%= f.file_field :thumbnail, class: 'form-control'  %>
-      </div>
-    </div>
+<div class='form-group'>
+  <%= f.label :description, class: 'control-label col-md-3' %>
+  <div class=' col-md-9'>
+    <%= f.text_area :description, size: '40x5', class: 'form-control'  %>
+  </div>
+</div>
 
-    <div class='form-group'>
-      <%= label_tag 'Finished Pictures', nil, class: 'control-label col-md-3' %>
-      <div class=' col-md-9'>
-        <%= file_field_tag "pictures[]", type: :file, multiple: true, class: 'form-control'  %>
-      </div>
-    </div>
+<div class='form-group'>
+  <%= f.label :thumbnail, class: 'control-label col-md-3' %>
+  <div class=' col-md-9'>
+    <%= f.file_field :thumbnail, class: 'form-control'  %>
+  </div>
+</div>
 
-    <div class='form-group'>
-      <%= label_tag 'Process Pictures', nil, class: 'control-label col-md-3' %>
-      <div class=' col-md-9'>
-        <%= file_field_tag "process_pictures[]", type: :file, multiple: true, class: 'form-control'  %>
-      </div>
-    </div>
-    <div class='form-group'>
-      <div class='col-md-3 col-md-offset-3'>
-        <%= f.submit class: 'form-control btn btn-primary' %>
-      </div>
-    </div>
+<div class='form-group'>
+  <%= label_tag 'Finished Pictures', nil, class: 'control-label col-md-3' %>
+  <div class=' col-md-9'>
+    <%= file_field_tag "pictures[]", type: :file, multiple: true, class: 'form-control'  %>
+  </div>
+</div>
+
+<div class='form-group'>
+  <%= label_tag 'Process Pictures', nil, class: 'control-label col-md-3' %>
+  <div class=' col-md-9'>
+    <%= file_field_tag "process_pictures[]", type: :file, multiple: true, class: 'form-control'  %>
+  </div>
+</div>
+<div class='form-group'>
+  <div class='col-md-3 col-md-offset-3'>
+    <%= f.submit class: 'form-control btn btn-primary' %>
+  </div>
+</div>
