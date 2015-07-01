@@ -3,6 +3,7 @@ class PublicController < ApplicationController
 
   before_action :find_work, only: [:show, :show_process]
   before_action :set_og_tag_site_name
+  before_action :hit_count
 
   def about
     @og_title = "About Moyu Zhang"
@@ -47,21 +48,59 @@ class PublicController < ApplicationController
   end
 
   private
-    def find_work
-      @work = Work.find(params[:id])
-      set_og_tags(@work)
+  def find_work
+    @work = Work.find(params[:id])
+    set_og_tags(@work)
+  end
+
+  def set_og_tags(work)
+    @og_title = work.name + " by Moyu Zhang"
+    @og_type = 'article'
+    @og_url = work_url(@work)
+    @og_image = URI.join(request.url, work.thumbnail.url(:thumb))
+    @og_description = work.description
+  end
+
+  def set_og_tag_site_name
+    @og_site_name = 'Moyu Zhang Design'
+  end
+
+  def hit_count
+    unless session[:visited]
+      session[:visited] = 0
+      # add a unique visit count
+      add_unique_hit
     end
 
-    def set_og_tags(work)
-      @og_title = work.name + " by Moyu Zhang"
-      @og_type = 'article'
-      @og_url = work_url(@work)
-      @og_image = URI.join(request.url, work.thumbnail.url(:thumb))
-      @og_description = work.description
+    unless cookies[:hit]
+      cookies[:hit] = { value: true, expires: 2.minute.from_now }
+      session[:visited] += 1
+      add_hit
     end
 
-    def set_og_tag_site_name
-      @og_site_name = 'Moyu Zhang Design'
-    end
+    @hits = HitCount.find_by_cat('all').hits
+    @unique_hits = HitCount.find_by_cat('unique').hits
+    @guest_visited = session[:visited]
 
+  end
+
+  def add_unique_hit
+    hit = HitCount.find_by_cat('unique')
+    if hit
+      hit.hits += 1
+      hit.save
+    else
+      hit = HitCount.create(cat: 'unique', hits: 1)
+    end
+  end
+
+  def add_hit
+    hit = HitCount.find_by_cat('all')
+    if hit
+      hit.hits += 1
+      hit.save
+    else
+      hit = HitCount.create(cat: 'all', hits: 1)
+    end
+  end
 end

@@ -53,6 +53,12 @@ fjs.parentNode.insertBefore(js, fjs);
   </div>
 
   <footer class="footer">
+      <div class="container">
+        <p>This is the <%= @guest_visited %> times you visit here</p>
+        <p>There's been <%= @unique_hits %> unique visitors</p>
+        <p>There's been <%= @hits %> hits</p>
+      </div>
+
     <div class="container" id="copyright">
       <p class='text-muted'>Design &amp; copyright&copy; Moyu Zhang 2015. Photos by Moyu Zhang, unless otherwise specified.</p>
     </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150626023101) do
+ActiveRecord::Schema.define(version: 20150701151324) do
 
   create_table "about_paragraphs", force: :cascade do |t|
     t.text     "text"
@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(version: 20150626023101) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "hit_counts", force: :cascade do |t|
+    t.string   "cat"
+    t.integer  "hits"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "pictures", force: :cascade do |t|
