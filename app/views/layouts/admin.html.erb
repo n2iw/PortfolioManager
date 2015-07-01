@@ -28,9 +28,10 @@
     </div>
 
     <div class="container">
-      <% if !flash[:notice].blank? %>
-        <div class="well">
-          <%= flash[:notice] %>
+      <% flash.each do |type, message| %>
+        <div class="alert <%= bootstrap_class_for(type.to_sym) %> fade in">
+          <button class="close" data-dismiss="alert">×</button>
+          <%= message %>
         </div>
       <% end %>
 

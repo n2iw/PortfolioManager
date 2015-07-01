@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def confirm_logged_in
     unless session[:user_id]
-      flash[:notice] = 'Please loggin first'
+      flash[:alert] = 'Please loggin first'
       redirect_to controller: :access, action: :login
       return false
     else

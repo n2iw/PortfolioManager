@@ -12,10 +12,10 @@ class AboutParagraphsController < ApplicationController
   #def create
     #@paragraph = AboutParagraph.new(paragraph_params)
     #if @paragraph.save
-      #flash[:notice] = "New About Paragraph created!"
+      #flash[:success] = "New About Paragraph created!"
       #redirect_to action: :index
     #else
-      #flash[:notice] = "Create new About Pragraph failed!"
+      #flash[:error] = "Create new About Pragraph failed!"
       #@paragraph_count = AboutParagraph.count + 1
       #render 'new'
     #end
@@ -33,17 +33,17 @@ class AboutParagraphsController < ApplicationController
   def update
     @paragraph = AboutParagraph.first
     if @paragraph.update_attributes(paragraph_params)
-      flash[:notice] = "About Paragraph updated!"
+      flash[:success] = "About Paragraph updated!"
       redirect_to action: :edit
     else
-      flash[:notice] = "About Paragraph update failed!"
+      flash[:error] = "About Paragraph update failed!"
       render 'edit'
     end
   end
 
   #def destroy
     #@paragraph.destroy
-    #flash[:notice] = "About Paragraph deleted!"
+    #flash[:alert] = "About Paragraph deleted!"
     #redirect_to action: :index
   #end
 

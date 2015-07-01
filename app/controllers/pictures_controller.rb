@@ -11,7 +11,7 @@ class PicturesController < ApplicationController
       params[:files].each do |picture|
         @work.pictures.create file: picture
       end
-      flash[:notice] = "#{params[:files].count} Pictures added!"
+      flash[:success] = "#{params[:files].count} Pictures added!"
     end
 
     redirect_to work_pictures_path params[:work_id]
@@ -25,10 +25,10 @@ class PicturesController < ApplicationController
 
   def update
     if @picture.update_attributes(picture_params)
-      flash[:notice] = "Picture updated!"
+      flash[:success] = "Picture updated!"
       redirect_to work_pictures_path params[:work_id]
     else
-      flash[:notice] = "Update picture failed!"
+      flash[:error] = "Update picture failed!"
       redirect_to work_pictures_path params[:work_id]
     end
   end
@@ -37,7 +37,7 @@ class PicturesController < ApplicationController
   end
 
   def destroy
-    flash[:notice] = "Picture #{@picture.file_file_name} deleted!"
+    flash[:alert] = "Picture #{@picture.file_file_name} deleted!"
     @picture.destroy
     redirect_to work_pictures_path params[:work_id]
   end

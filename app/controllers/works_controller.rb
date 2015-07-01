@@ -12,11 +12,11 @@ class WorksController < ApplicationController
   def create
     @work = Work.new(work_params)
     if @work.save
-      flash[:notice] = "New Work #{@work.name} created!"
+      flash[:success] = "New Work #{@work.name} created!"
       create_pictures
       redirect_to edit_work_path(@work.id)
     else
-      flash[:notice] = "Create new work failed!"
+      flash[:error] = "Create new work failed!"
       @work_count = Work.count + 1
       render 'new'
     end
@@ -42,21 +42,21 @@ class WorksController < ApplicationController
 
   def update
     if @work.update_attributes(work_params)
-      flash[:notice] = "Work: #{@work.name} updated!"
+      flash[:success] = "Work: #{@work.name} updated!"
       create_pictures
       redirect_to action: :show
     else
-      flash[:notice] = "Work: #{@work.name} update failed!"
+      flash[:error] = "Work: #{@work.name} update failed!"
       render 'edit'
     end
   end
 
   def update_position
     if @work.update_attributes(work_params)
-      flash[:notice] = "Work: #{@work.name} updated!"
+      flash[:success] = "Work: #{@work.name} updated!"
       redirect_to action: :index
     else
-      flash[:notice] = "Work: #{@work.name} update failed!"
+      flash[:error] = "Work: #{@work.name} update failed!"
       redirect_to action: :index
     end
   end
@@ -66,7 +66,7 @@ class WorksController < ApplicationController
 
   def destroy
     @work.destroy
-    flash[:notice] = "Work: #{@work.name} deleted!"
+    flash[:alert] = "Work: #{@work.name} deleted!"
     redirect_to action: :index
   end
 
