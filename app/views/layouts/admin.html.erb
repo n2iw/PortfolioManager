@@ -35,6 +35,10 @@
         </div>
       <% end %>
 
+    <% if @hits and @unique_hits %>
+        <h6 class='well'>There's been <%= @hits %> visits from <%= @unique_hits %> unique visitors</h6>
+    <% end %>
+
       <%= yield %>
     </div>
 

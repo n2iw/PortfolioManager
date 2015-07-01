@@ -3,6 +3,7 @@ class WorksController < ApplicationController
 
   before_action :confirm_logged_in
   before_action :find_work, except: [:new, :create, :index]
+  before_action :get_hit_counts
 
   def new
     @work = Work.new

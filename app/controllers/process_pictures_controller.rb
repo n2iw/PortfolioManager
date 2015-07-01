@@ -4,6 +4,7 @@ class ProcessPicturesController < ApplicationController
   before_action :confirm_logged_in
   before_action :find_work
   before_action :find_process_picture, except: [:create, :index]
+  before_action :get_hit_counts
 
   def create
     if params[:files]

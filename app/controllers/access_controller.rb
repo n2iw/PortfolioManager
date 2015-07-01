@@ -15,6 +15,7 @@ class AccessController < ApplicationController
       end
     end
     if authorized_user
+      session[:admin] = true
       # mark user as logged in
       session[:user_id] = authorized_user.id
       session[:username] = authorized_user.username

@@ -13,4 +13,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def get_hit_counts
+    @hits = HitCount.find_by_cat('all').hits
+    @unique_hits = HitCount.find_by_cat('unique').hits
+    @guest_visited = session[:visited]
+  end
 end

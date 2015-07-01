@@ -2,6 +2,7 @@ class AboutParagraphsController < ApplicationController
   layout 'admin'
 
   before_action :confirm_logged_in
+  before_action :get_hit_counts
   #before_action :find_paragraph, except: [:new, :create, :index]
 
   #def new

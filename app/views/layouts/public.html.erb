@@ -1,67 +1,62 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <% if @title %>
-    <title><%= @title %> | moyuzhang.com</title>
-  <% else %>
-    <title>Welcome to moyuzhang.com</title>
-  <% end %>
+  <head>
+    <meta charset="utf-8">
+    <% if @title %>
+      <title><%= @title %> | moyuzhang.com</title>
+    <% else %>
+      <title>Welcome to moyuzhang.com</title>
+    <% end %>
 
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-  <meta property="og:title" content="<%= @og_title %>">
-  <meta property="og:type" content="<%= @og_type %>">
-  <meta property="og:url" content="<%= @og_url %>">
-  <meta property="og:image" content="<%= @og_image %>">
-  <meta property="og:site_name" content="<%= @og_site_name %>">
-  <meta property="og:description" content="<%= @og_description %>">
-</head>
-<body>
-  <div class='js-apis'>
-    <%# Facebook JavaScript SDK begin %>
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+    <meta property="og:title" content="<%= @og_title %>">
+    <meta property="og:type" content="<%= @og_type %>">
+    <meta property="og:url" content="<%= @og_url %>">
+    <meta property="og:image" content="<%= @og_image %>">
+    <meta property="og:site_name" content="<%= @og_site_name %>">
+    <meta property="og:description" content="<%= @og_description %>">
+  </head>
+  <body>
+    <div class='js-apis'>
+      <%# Facebook JavaScript SDK begin %>
+      <div id="fb-root"></div>
+      <script>(function(d, s, id) {
 var js, fjs = d.getElementsByTagName(s)[0];
 if (d.getElementById(id)) return;
 js = d.createElement(s); js.id = id;
 js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
 fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-    <%# Facebook JavaScript SDK end %>
-    <%# Pinterest buttons start %>
-    <!-- Please call pinit.js only once per page -->
-    <script type="text/javascript" async defer  data-pin-color="red" data-pin-height="28" data-pin-hover="true" src="//assets.pinterest.com/js/pinit.js"></script>
-    <%# Pinterest buttons end %>
-  </div>
-
-  <div class='container'>
-    <div class="header_images">
-      <%= link_to image_tag("moyuzhang_seal.png", alt: "moyuzhang.com", id: "seal"), :root %>
-      <%= link_to image_tag("moyuzhangblack.png", alt: "moyuzhang.com"), :root %>
+      }(document, 'script', 'facebook-jssdk'));</script>
+      <%# Facebook JavaScript SDK end %>
+      <%# Pinterest buttons start %>
+      <!-- Please call pinit.js only once per page -->
+      <script type="text/javascript" async defer  data-pin-color="red" data-pin-height="28" data-pin-hover="true" src="//assets.pinterest.com/js/pinit.js"></script>
+      <%# Pinterest buttons end %>
     </div>
-    <ul class="navigator list-inline" id="navigator">
-      <li><%= link_to image_tag("about.png", alt: "about"), about_path %></li>
-      <li><%= link_to image_tag("work.png", alt: "work"), :root %></li>
-      <li><%= link_to image_tag("contact.png", alt: "contact"), contact_path %></li>
-    </ul>
-  </div>
-  
-  <div class="container">
-    <%= yield %>
-  </div>
 
-  <footer class="footer">
-      <div class="container">
-        <p>This is the <%= @guest_visited %> times you visit here</p>
-        <p>There's been <%= @unique_hits %> unique visitors</p>
-        <p>There's been <%= @hits %> hits</p>
+    <div class='container'>
+      <div class="header_images">
+        <%= link_to image_tag("moyuzhang_seal.png", alt: "moyuzhang.com", id: "seal"), :root %>
+        <%= link_to image_tag("moyuzhangblack.png", alt: "moyuzhang.com"), :root %>
       </div>
-
-    <div class="container" id="copyright">
-      <p class='text-muted'>Design &amp; copyright&copy; Moyu Zhang 2015. Photos by Moyu Zhang, unless otherwise specified.</p>
+      <ul class="navigator list-inline" id="navigator">
+        <li><%= link_to image_tag("about.png", alt: "about"), about_path %></li>
+        <li><%= link_to image_tag("work.png", alt: "work"), :root %></li>
+        <li><%= link_to image_tag("contact.png", alt: "contact"), contact_path %></li>
+      </ul>
     </div>
-  </footer>
-</body>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <footer class="footer">
+
+      <div class="container" id="copyright">
+        <p class='text-muted'>Design &amp; copyright&copy; Moyu Zhang 2015. Photos by Moyu Zhang, unless otherwise specified.</p>
+      </div>
+    </footer>
+  </body>
 </html>

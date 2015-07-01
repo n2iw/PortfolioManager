@@ -66,6 +66,13 @@ class PublicController < ApplicationController
   end
 
   def hit_count
+    #Admin users
+    if session[:admin]
+      #get_hit_counts
+      return
+    end
+
+    #Guests
     unless session[:visited]
       session[:visited] = 0
       # add a unique visit count
@@ -73,15 +80,10 @@ class PublicController < ApplicationController
     end
 
     unless cookies[:hit]
-      cookies[:hit] = { value: true, expires: 2.minute.from_now }
+      cookies[:hit] = { value: true, expires: 1.hour.from_now }
       session[:visited] += 1
       add_hit
     end
-
-    @hits = HitCount.find_by_cat('all').hits
-    @unique_hits = HitCount.find_by_cat('unique').hits
-    @guest_visited = session[:visited]
-
   end
 
   def add_unique_hit
