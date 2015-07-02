@@ -10,14 +10,16 @@ Rails.application.routes.draw do
   post 'access/attempt_login'
   get 'access/logout'
 
+  get 'admin' => 'works#statistics'
+
   get 'edit_about' => 'about_paragraphs#edit'
   patch 'update_about' => 'about_paragraphs#update'
 
   resources :works do
-    collection do
-      get :statistics
-      get :migrate_hit_counts
-    end
+    #collection do
+      #get :statistics
+      #get :migrate_hit_counts
+    #end
     
     member do
       get :delete

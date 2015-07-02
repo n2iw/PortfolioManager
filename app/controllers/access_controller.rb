@@ -21,7 +21,7 @@ class AccessController < ApplicationController
       session[:username] = authorized_user.username
 
       flash[:success] = "You are logged in"
-      redirect_to controller: :works, action: :index
+      redirect_to controller: :works, action: :statistics
     else
       flash[:error] = "Invalid username/passowrd"
       redirect_to action: :login
