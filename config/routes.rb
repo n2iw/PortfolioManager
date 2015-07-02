@@ -14,6 +14,11 @@ Rails.application.routes.draw do
   patch 'update_about' => 'about_paragraphs#update'
 
   resources :works do
+    collection do
+      get :statistics
+      get :migrate_hit_counts
+    end
+    
     member do
       get :delete
       get :show_process

@@ -1,0 +1,44 @@
+<% @title = 'Work Statistics' %>
+<div class="well">
+  <div class='row'>
+    <h5 class='col-md-6 text-right'>Overall page visits :</h5>
+    <h5 class='col-md-6 text-left'><%= @overall_hits %></h5>
+  </div>
+
+  <div class='row'>
+    <h5 class='col-md-6 text-right'>Unique visitors :</h5>
+    <h5 class='col-md-6 text-left'><%= @unique_visitors %></h5>
+  </div>
+
+  <div class='row'>
+    <h5 class='col-md-6 text-right'>Total works :</h5>
+    <h5 class='col-md-6 text-left'><%= @work_count %></h5>
+  </div>
+</div>
+<% @works.each do |work| %>
+  <div class='well'>
+    <div class='row'>
+      <div class='col-md-2'>
+        <%= link_to image_tag(work.thumbnail.url(:thumb), alt: work.name), {action: :show, id: work.id}  %>
+      </div>
+
+      <div class='col-md-10'>
+        <div class='row'>
+          <h5 class='form-title'><%= work.name %></h5>
+        </div>
+        <div class='row'>
+          <h6 class='col-md-6 text-right'>Created At :</h6><h6 class='col-md-6 text-left'><%= work.created_at.strftime("%Y-%m-%d %H:%M:%S") %></h6>
+        </div>
+        <div class='row'>
+          <h6 class='col-md-6 text-right'>Updated At :</h6><h6 class='col-md-6 text-left'><%= work.updated_at.strftime("%Y-%m-%d %H:%M:%S") %></h6>
+        </div>
+        <div class='row'>
+          <h6 class='col-md-6 text-right'>Visits :</h6><h6 class='col-md-6 text-left'><%= @work_hits[work.id] %></h6>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<div class="well">
+  <%= link_to 'Migrate Old Records', migrate_hit_counts_works_path, class: 'btn btn-default' %>
+</div>

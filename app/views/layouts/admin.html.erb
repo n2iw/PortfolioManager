@@ -18,6 +18,7 @@
       <div class="container">
         <%= link_to 'Home Page', root_path, class: 'navbar-brand' %>
         <ul class='navbar-nav nav navbar-right'>
+          <li><%= link_to 'Statistics', statistics_works_path, class: 'navbar-link' %></li>
           <li><%= link_to 'Manage Works', works_path, class: 'navbar-link' %></li>
           <li><%= link_to 'Add New Work', new_work_path, class: 'navbar-link'   %></li>
           <li><%= link_to 'Edit About', edit_about_path, class: 'navbar-link'   %></li>
@@ -34,10 +35,6 @@
           <%= message %>
         </div>
       <% end %>
-
-    <% if @hits and @unique_hits %>
-        <h6 class='well'>There's been <%= @hits %> visits from <%= @unique_hits %> unique visitors</h6>
-    <% end %>
 
       <%= yield %>
     </div>
