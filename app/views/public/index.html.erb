@@ -5,7 +5,7 @@
   <div id='works' class='row'>
     <% @works.each do |work| %>
       <div class="work-cell col-md-4 col-xs-6">
-        <h6 class='work-name'><%= work.name %></h2>
+        <h6 class='work-name'><%= work.name %></h6>
         <p>
         <%= link_to image_tag(work.thumbnail.url(:thumb), alt: "#{work.name} by Moyu Zhang", class:'work-thumb'),
           work_path(id: work.id) %>
