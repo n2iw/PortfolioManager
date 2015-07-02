@@ -148,9 +148,16 @@ class WorksController < ApplicationController
       @overall_hits = HitCount.find_by_cat('all').hits
       @unique_visitors = HitCount.find_by_cat('unique').hits
       @work_hits = {}
+      @page_hits = {}
+      @total_work_hits = 0
       HitCount.all.each do |hit|
         if hit.cat =~ /\d+/
           @work_hits[hit.cat.to_i] = hit.hits.to_i
+          @total_work_hits += hit.hits.to_i
+        else
+          unless hit.cat == 'all' || hit.cat == 'unique'
+            @page_hits[hit.cat] = hit.hits.to_i
+          end
         end
       end
     end
