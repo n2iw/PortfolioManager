@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 
   def page_name
     if action_name == 'show' || action_name == 'show_process'
-      "work_#{@work.id}"
+      "#{@work.id}"
     else
       action_name
     end
