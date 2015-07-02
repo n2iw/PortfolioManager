@@ -34,13 +34,16 @@
           <h5 class='form-title'><%= work.name %></h5>
         </div>
         <div class='row'>
-          <h6 class='col-md-6 text-right'>Created At :</h6><h6 class='col-md-6 text-left'><%= work.created_at.strftime("%Y-%m-%d %H:%M:%S") %></h6>
+          <h6 class='col-md-6 text-right'>Created At :</h6>
+          <h6 class='col-md-6 text-left'><%= work.created_at.strftime("%Y-%m-%d %H:%M:%S") %></h6>
         </div>
         <div class='row'>
-          <h6 class='col-md-6 text-right'>Updated At :</h6><h6 class='col-md-6 text-left'><%= work.updated_at.strftime("%Y-%m-%d %H:%M:%S") %></h6>
+          <h6 class='col-md-6 text-right'>Updated At :</h6>
+          <h6 class='col-md-6 text-left'><%= work.updated_at.strftime("%Y-%m-%d %H:%M:%S") %></h6>
         </div>
         <div class='row'>
-          <h6 class='col-md-6 text-right'>Visits :</h6><h6 class='col-md-6 text-left'><%= @work_hits[work.id] %></h6>
+          <h6 class='col-md-6 text-right'>Visits :</h6>
+          <h6 class='col-md-6 text-left'><%= @work_hits[work.id] %></h6>
         </div>
       </div>
     </div>

@@ -6,14 +6,13 @@ class WorksController < ApplicationController
 
   def statistics
     get_hit_counts
-    get_all_works
+    @works = Work.all.sort_by do |work|
+      - @work_hits[work.id]
+    end
   end
 
   # migrate from old "work_xxx" category to new "xxx"
   def migrate_hit_counts
-    #puts 'Migrate hit counts'
-    #redirect_to action: :statistics
-    #return
     all_hits = HitCount.all
     all_hits.each do |hit|
       if hit.cat.start_with? "work_"
@@ -66,7 +65,8 @@ class WorksController < ApplicationController
   end
 
   def index
-    get_all_works
+    @works = Work.sorted
+    @work_count = Work.count
   end
 
   def show
@@ -139,15 +139,10 @@ class WorksController < ApplicationController
       @process_pictures = @work.process_pictures.sorted
     end
 
-    def get_all_works
-      @works = Work.sorted
-      @work_count = Work.count
-    end
-
     def get_hit_counts
       @overall_hits = HitCount.find_by_cat('all').hits
       @unique_visitors = HitCount.find_by_cat('unique').hits
-      @work_hits = {}
+      @work_hits = Hash.new(0)
       @page_hits = {}
       @total_work_hits = 0
       HitCount.all.each do |hit|
@@ -161,5 +156,4 @@ class WorksController < ApplicationController
         end
       end
     end
-
 end
