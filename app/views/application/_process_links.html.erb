@@ -1,9 +1,9 @@
-  <div class='process-links list-inline'>
+  <div class='process-links'>
     <% if controller.action_name == 'show' %>
       <% if @process_picture_count > 0 %>
-        <div class="process-link" id="process_link"><%= link_to button_tag('Process Pictures', type: 'button', class: 'btn btn-sm btn-primary'), action: :show_process %></div>
+        <div class="process-link"><%= link_to 'Process Pictures', {action: :show_process}, class: 'btn btn-sm btn-primary' %></div>
       <% end %>
     <% else %>
-      <div class="process-link" id="finished_link"><%= link_to button_tag('Finished Pictures', type: 'button', class: 'btn btn-sm btn-primary'), action: :show %></div>
+      <div class="finished-link"><%= link_to 'Finished Pictures', {action: :show}, class: 'btn btn-sm btn-primary' %></div>
     <% end %>
   </div>

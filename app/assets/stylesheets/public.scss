@@ -56,14 +56,16 @@ body,
 
 .links {
   vertical-align: middle;
+
   .process-links {
     text-align: right;
     margin-top: 10px;
     margin-bottom: 10px;
-  }
-  .process-link .btn-sm {
-    padding-top: 0px;
-    padding-bottom: 0px;
+
+    .btn-sm {
+      padding-top: 0px;
+      padding-bottom: 0px;
+    }
   }
 }
 
