@@ -16,7 +16,7 @@
 <div class='row'>
   <div class='col-md-5 well'>
     <div class='form-group'>
-      <%= link_to button_tag('Manage Pictures', type: 'button', class: 'btn btn-info'), work_pictures_path(@work) %>
+      <%= link_to 'manage pictures', work_pictures_path(@work), class: 'btn btn-info' %>
     </div>
 
     <% @pictures.each do |p| %>
@@ -26,7 +26,7 @@
 
   <div class='col-md-5 col-md-offset-1 well'>
     <div class='form-group'>
-      <%= link_to button_tag('Manage Process Pictures', type: 'button', class: 'btn btn-info'), work_process_pictures_path(@work) %>
+      <%= link_to 'Manage Process Pictures', work_process_pictures_path(@work), class: 'btn btn-info' %>
     </div>
 
     <% @process_pictures.each do |p| %>
