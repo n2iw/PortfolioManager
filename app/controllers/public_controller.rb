@@ -79,10 +79,12 @@ class PublicController < ApplicationController
       add_unique_hit
     end
 
-    unless cookies[:hit]
-      cookies[:hit] = { value: true, expires: 1.hour.from_now }
+    name = page_name
+    unless cookies[name]
+      cookies[name] = { value: true, expires: 1.hour.from_now }
       session[:visited] += 1
-      add_hit
+      add_hit name
+      add_hit 'all'
     end
   end
 
@@ -96,13 +98,14 @@ class PublicController < ApplicationController
     end
   end
 
-  def add_hit
-    hit = HitCount.find_by_cat('all')
+  def add_hit(name)
+    hit = HitCount.find_by_cat(name)
     if hit
       hit.hits += 1
       hit.save
     else
-      hit = HitCount.create(cat: 'all', hits: 1)
+      hit = HitCount.create(cat: name, hits: 1)
     end
   end
+
 end

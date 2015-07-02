@@ -17,5 +17,14 @@ class ApplicationController < ActionController::Base
     @hits = HitCount.find_by_cat('all').hits
     @unique_hits = HitCount.find_by_cat('unique').hits
     @guest_visited = session[:visited]
+    @page_hits = HitCount.find_by_cat(page_name)
+  end
+
+  def page_name
+    if action_name == 'show' || action_name == 'show_process'
+      "work_#{@work.id}"
+    else
+      action_name
+    end
   end
 end
