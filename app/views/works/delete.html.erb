@@ -7,7 +7,7 @@
   </div>
   <%= form_for @work, :url => {action: :destroy}, method: 'delete', html: {class: 'form delete-work'} do |f| %>
     <div class='form-group'>
-      <%= link_to 'Cancel', {action: :index}, class: 'btn btn-success' %>
+      <%= link_to 'Cancel', {action: (@work.award ? :manage_awards : :index)}, class: 'btn btn-success' %>
       <%= f.submit 'Delete', class: 'btn btn-danger'%>
     </div>
   <% end %>

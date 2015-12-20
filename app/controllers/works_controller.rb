@@ -2,11 +2,11 @@ class WorksController < ApplicationController
   layout 'admin'
 
   before_action :confirm_logged_in
-  before_action :find_work, except: [:new, :create, :index, :statistics, :migrate_hit_counts]
+  before_action :find_work, except: [:new, :create, :index, :statistics, :migrate_hit_counts, :manage_awards]
 
   def statistics
     get_hit_counts
-    @works = Work.all.sort_by do |work|
+    @works = Work.normal.sort_by do |work|
       - @work_hits[work.id]
     end
   end
@@ -48,7 +48,7 @@ class WorksController < ApplicationController
 
   def new
     @work = Work.new
-    @work_count = Work.count + 1
+    @work_count = Work.normal.count + 1
   end
 
   def create
@@ -59,14 +59,19 @@ class WorksController < ApplicationController
       redirect_to edit_work_path(@work.id)
     else
       flash[:error] = "Create new work failed!"
-      @work_count = Work.count + 1
+      @work_count = Work.normal.count + 1
       render 'new'
     end
   end
 
   def index
-    @works = Work.sorted
-    @work_count = Work.count
+    @works = Work.normal.sorted
+    @work_count = Work.normal.count
+  end
+
+  def manage_awards
+    @works = Work.awarded.sorted
+    @work_count = Work.awarded.count
   end
 
   def show
@@ -95,27 +100,42 @@ class WorksController < ApplicationController
 
   def update_position
     if @work.update_attributes(work_params)
-      flash[:success] = "Work: #{@work.name} updated!"
-      redirect_to action: :index
+      if @work.award
+        flash[:success] = "Award: #{@work.name} updated!"
+        redirect_to action: :manage_awards
+      else
+        flash[:success] = "Work: #{@work.name} updated!"
+        redirect_to action: :index
+      end
     else
-      flash[:error] = "Work: #{@work.name} update failed!"
-      redirect_to action: :index
+      if @work.award
+        flash[:error] = "Award: #{@work.name} update failed!"
+        redirect_to action: :manage_awards
+      else
+        flash[:error] = "Work: #{@work.name} update failed!"
+        redirect_to action: :index
+      end
     end
   end
-
+  
   def delete
   end
 
   def destroy
     @work.destroy
-    flash[:alert] = "Work: #{@work.name} deleted!"
-    redirect_to action: :index
+    if @work.award
+      flash[:alert] = "Award: #{@work.name} deleted!"
+      redirect_to action: :manage_awards
+    else
+      flash[:alert] = "Work: #{@work.name} deleted!"
+      redirect_to action: :index
+    end
   end
 
 
   private
     def work_params
-      params.require(:work).permit(:name, :thumbnail, :position, :visible, :description)
+      params.require(:work).permit(:name, :thumbnail, :position, :visible, :description, :award)
     end
 
     def create_pictures
@@ -134,7 +154,7 @@ class WorksController < ApplicationController
 
     def find_work
       @work = Work.find params[:id]
-      @work_count = Work.count
+      @work_count = Work.normal.count
       @pictures = @work.pictures.sorted
       @process_pictures = @work.process_pictures.sorted
     end

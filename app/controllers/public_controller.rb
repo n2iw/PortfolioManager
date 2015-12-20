@@ -23,12 +23,21 @@ class PublicController < ApplicationController
   end
 
   def index
-    @works = Work.visible.sorted
+    @works = Work.normal.visible.sorted
     @og_title = "Moyu Zhang Design"
     @og_type = 'website'
     @og_url = root_url
     @og_image = "http://moyuzhang.com/system/works/thumbnails/000/000/022/thumb/Dance_No.2_thumbnail_copy.jpg?1434254667"
     @og_description = 'Works of Moyu Zhang'
+  end
+
+  def awards
+    @works = Work.awarded.visible.sorted
+    @og_title = "Moyu Zhang Design"
+    @og_type = 'website'
+    @og_url = root_url
+    @og_image = "http://moyuzhang.com/system/works/thumbnails/000/000/022/thumb/Dance_No.2_thumbnail_copy.jpg?1434254667"
+    @og_description = 'Awards of Moyu Zhang'
   end
 
   def show

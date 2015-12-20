@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150701151324) do
+ActiveRecord::Schema.define(version: 20151220030634) do
 
   create_table "about_paragraphs", force: :cascade do |t|
     t.text     "text"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20150701151324) do
     t.text     "description"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+    t.boolean  "award",                  default: false
   end
 
 end

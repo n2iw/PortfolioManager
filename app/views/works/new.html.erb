@@ -1,6 +1,6 @@
-<% @title = 'Create a New Work' %>
+<% @title = 'Create a New Work/Award' %>
 <div class='well'>
-  <h4 class='form-title'>New Work</h4>
+  <h4 class='form-title'>New Work/Award</h4>
   <%= form_for( @work, :url => {action: :create}, :html => { :multipart => true, class: 'form-horizontal' }) do |f| %>
     <%= render partial: 'form', locals: {f: f} %>
   <% end %>

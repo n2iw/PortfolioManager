@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'work_process/:id' => 'public#show_process', as: :work_process
   get 'about' => 'public#about'
   get 'contact' => 'public#contact'
+  get 'awards' => 'public#awards'
 
   get 'access/login'
   post 'access/attempt_login'
@@ -40,6 +41,8 @@ Rails.application.routes.draw do
     end
 
   end
+
+  get 'manage_awards' => 'works#manage_awards'
   
 
   # The priority is based upon order of creation: first created -> highest priority.
