@@ -22,7 +22,10 @@ tags
 /public/system
 /config/secrets.yml
 
+# Ignore Spring files.
+/spring/*.pid
 
+#### below came from rails.gitignore project
 *.rbc
 capybara-*.html
 .rspec
