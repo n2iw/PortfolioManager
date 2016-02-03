@@ -1,5 +1,6 @@
 # config valid only for Capistrano 3.1
-lock '3.1.0'
+#lock '3.1.0'
+lock '3.4.0'
 
 set :rails_env, :production
 #set :stage, :production
