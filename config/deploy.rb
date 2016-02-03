@@ -10,9 +10,9 @@ set :rails_env, :production
 # server in each group is considered to be the first
 # unless any hosts have the primary property set.
 # Don't declare `role :all`, it's a meta role
-role :app, %w{ubuntu@52.1.250.117}
-role :web, %w{ubuntu@52.1.250.117}
-role :db,  %w{ubuntu@52.1.250.117}
+role :app, %w{ocean@159.203.110.9}
+role :web, %w{ocean@159.203.110.9}
+role :db,  %w{ocean@159.203.110.9}
 
 # Extended Server Syntax
 # ======================
@@ -23,7 +23,7 @@ role :db,  %w{ubuntu@52.1.250.117}
 #server '52.1.250.117', user: 'ubuntu', roles: %w{web app}, my_property: :my_value
 
 set :application, 'moyuzhang_app'
-set :repo_url, 'git@bitbucket.org:jamesying/moyuzhang_app.git'
+set :repo_url, 'git@github.com:n2iw/PortfolioManager.git'
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
@@ -56,13 +56,13 @@ set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/sys
 #    auth_methods: %w(password)
 #  }
 # and/or per server
-server '52.1.250.117',
-  user: 'ubuntu',
+server '159.203.110.9',
+  user: 'ocean',
   roles: %w{web app db},
-  ssh_options: {
-    keys: %w(/Users/james/Mydoc/id/james-key-useast.pem)
-    # password: 'please use keys'
-  }
+  #ssh_options: {
+    #keys: %w(/Users/james/Mydoc/id/james-key-useast.pem)
+    ## password: 'please use keys'
+  #}
 # setting per server overrides global ssh_options
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
