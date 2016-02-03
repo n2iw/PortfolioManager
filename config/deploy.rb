@@ -58,7 +58,7 @@ set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/sys
 # and/or per server
 server '159.203.110.9',
   user: 'ocean',
-  roles: %w{web app db},
+  roles: %w{web app db}
   #ssh_options: {
     #keys: %w(/Users/james/Mydoc/id/james-key-useast.pem)
     ## password: 'please use keys'
