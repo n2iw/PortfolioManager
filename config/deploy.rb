@@ -1,8 +1,9 @@
 # config valid only for Capistrano 3.1
 #lock '3.1.0'
-lock '3.4.1'
+lock '3.4.0'
 
 set :rails_env, :production
+set :rbenv_path, '/home/ocean/.rbenv/'
 #set :stage, :production
 
 # Simple Role Syntax
