@@ -88,3 +88,39 @@ body,
 #contact-list {
   padding: 20px;
 }
+
+/* navigation bar item */
+a.navigation {
+  font-family: 'Julius Sans One', sans-serif;
+  font-size: 18px;
+  text-decoration:none;
+}
+
+a:visited, a:active, a:hover {
+    color: black;
+}
+
+.award-list {
+  text-align: left;
+  line-height: 2em;
+  list-style-type: none;
+}
+
+#awards {
+  font-size: 14px;
+  font-family: 'Julius Sans One', sans-serif;
+  font-weight: bold;
+}
+
+#awards h3 {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    text-align: left;
+    font-size: 20px;
+}
+
+#logo {
+  font-family: 'Julius Sans One', sans-serif;
+  font-size: 48px;
+  text-decoration:none;
+}

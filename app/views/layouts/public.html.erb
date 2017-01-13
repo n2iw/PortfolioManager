@@ -11,12 +11,14 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
+    <meta name="viewpoint" content="width=device-width, initial-scale=1">
     <meta property="og:title" content="<%= @og_title %>">
     <meta property="og:type" content="<%= @og_type %>">
     <meta property="og:url" content="<%= @og_url %>">
     <meta property="og:image" content="<%= @og_image %>">
     <meta property="og:site_name" content="<%= @og_site_name %>">
     <meta property="og:description" content="<%= @og_description %>">
+    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
   </head>
   <body>
     <div class='js-apis'>
@@ -39,12 +41,13 @@ fjs.parentNode.insertBefore(js, fjs);
     <div class='container'>
       <div class="header_images">
         <%= link_to image_tag("moyuzhang_seal.png", alt: "moyuzhang.com", id: "seal"), :root %>
-        <%= link_to image_tag("moyuzhangblack.png", alt: "moyuzhang.com"), :root %>
+        <%= link_to "Moyu Zhang", :root, id: "logo" %>
       </div>
       <ul class="navigator list-inline" id="navigator">
-        <li><%= link_to image_tag("about.png", alt: "about"), about_path %></li>
-        <li><%= link_to image_tag("work.png", alt: "work"), :root %></li>
-        <li><%= link_to image_tag("contact.png", alt: "contact"), contact_path %></li>
+        <li><%= link_to "Work", :root, class: "navigation nav-link" %></li>
+        <li><%= link_to "Awards", awards_path, class: "navigation nav-link"%></li>
+        <li><%= link_to "About", about_path, class: "navigation nav-link" %></li>
+        <li><%= link_to "Contact", contact_path, class: "navigation nav-link"%></li>
       </ul>
     </div>
 
