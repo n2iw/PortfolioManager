@@ -2,16 +2,36 @@
 
   <div class='row index-social'><%= render partial: 'social_buttons' %></div>
 
-  <div id='works' class='row'>
-    <% @works.each do |work| %>
-      <div class="work-cell col-md-4 col-xs-6">
-        <h6 class='work-name'><%= work.name %></h6>
-        <p>
-        <%= link_to image_tag(work.thumbnail.url(:thumb), alt: "#{work.name} by Moyu Zhang", class:'work-thumb'),
-          work_path(id: work.id) %>
-        </p>
-      </div>
-    <% end %>
+  <div id="awards">
+    <h3>SELECTED RECENT AWARDS</h3>
+    <ul class="award-list list-group">
+        <li class="">2016 Arts & Crafts Design Award </li>
+        <li class="">2016 Niche Award: Professional/Home Furnishings</li>
+        <li class="">2016 Arts & Crafts Design Awards: Certificate of Excellence</li>
+        <li class="">2015 Wallace Library Purchase Prize Award</li>
+        <li class="">2013 Niche Award: Student/Furniture</li>
+    </ul>
+
+    <h3>SELECTED RECENT PUBLICATIONS and INTERVIEWS</h3>
+    <ul class="award-list list-group">
+        <li><a href="http://video.sinovision.net/?id=35492&cid=126&sts=1476537950694" target="_blank">Artist Interview with New York Lounge at SINOVISION 2016</a></li>
+        <li>Rooted-Creating a sense of place, Contemporary Studio Furniture, Furniture Society Book, Schiffer Publishing, 2015: Seating for two, Black ribbon Library Stairs</li>
+        <li>American Wood Turner Magazine: December 2015: Dance No.4</li>
+        <li>American Wood Turner Magazine: December 2016: Dance No.1, Dance No.2 and Dance No.3</li>
+        <li>NICHE Magazine spring 2016: Dance No.2 and Dance No.4</li>
+        <li>NICHE Magazine spring 2015: Unfolded Paper Tray</li>
+        <li>NICHE Magazine spring 2013: Seating for two</li>
+        <li>Signature Magazine: Seating for two</li>
+        <li>R.I.T. Athenaeum, February-March 2014: Technology blurs the line of making – Today’s artists pair tradition with computer-driven methods, by Rich Kiley</li>
+    </ul>
+
+    <h3>SELECTED RECENT EXHIBITIONS</h3>
+    <ul class="award-list list-group">
+        <li>2015 Craft Form International Exhibition, Wayne Art Center, Wayne, P.A.</li>
+        <li>2015 What’s New, What’s Next Exhibition. New York Design Center, N.Y.C.</li>
+        <li>2015 Dance in Silence - MFA Thesis Exhibition, Bevier Gallery, Rochester, N.Y.</li>
+        <li>2014 Fluidity, Gallery R, Rochester N.Y.</li>
+    </ul>
   </div>
 
   <div class='row index-social'><%= render partial: 'social_buttons' %></div>
