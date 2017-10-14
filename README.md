@@ -1,6 +1,6 @@
 # Portfolio Manager
 
-Portfolio management application for artists and photagraphers.
+Portfolio management application for artists and photographers.
 
 ## Sample website
 
