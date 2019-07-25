@@ -1,7 +1,10 @@
 <% @title = 'About Moyu Zhang' %>
 <div class=''>
   <div class='row' >
-    <%= image_tag "moyuzhang.jpg", alt: "moyuzhang", id: 'about-image' %>
+    <div class="col-xs-8 col-xs-offset-2">
+      <%= image_tag "moyuzhang.jpg", alt: "moyuzhang", id: 'about-image', width: '100%' %>
+      <p class="photo_credit">Photo credit: <a href="http://www.angelahall.com">Angela Hall</a> </p>
+    </div>
   </div>
   <div class='row'>
     <p id="about-text" class='col-xs-8 col-xs-offset-2'><%= @paragraph.text %>

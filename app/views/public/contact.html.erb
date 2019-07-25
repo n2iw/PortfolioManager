@@ -1,7 +1,10 @@
 <% @title = 'Contact Moyu Zhang' %>
 <div class="">
     <div class='row'>
-        <%= image_tag "contact.jpg", alt: "moyuzhang", id: 'contact-image'%>
+        <div class="col-xs-8 col-xs-offset-2">
+            <%= image_tag "contact.jpg", alt: "moyuzhang", id: 'contact-image', width: '100%'%>
+            <p class="photo_credit">Photo credit: <a href="http://www.angelahall.com">Angela Hall</a> </p>
+        </div>
     </div>
     <ul id="contact-list" class='list-inline row'>
         <li><a href="mailto:vivienmoyuzhang@gmail.com"><%= image_tag 'email_32.png' %></a></li>
